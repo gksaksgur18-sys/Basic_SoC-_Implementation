@@ -1,0 +1,26 @@
+xmsim(64): 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+define work_lib ./work.lib
+|
+xmsim: *W,DLCLAP (./cds.lib,2): cds.lib Same file has different definitions for library 'library work_lib from /home/hah004/Basic_SoC-_Implementation/2_SIM/4_SAMPLE/cds.lib line 2, redefines
+    library work_lib from same file line 1 defined earlier.' (continuing with last specified path).
+TOOL:	xmsim(64)	22.03-s012: Started on Jun 30, 2026 at 20:02:35 KST
+xmsim
+    -MESS
+    tb_pipeline
+    -gui
+
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm tb_pipeline.reset tb_pipeline.clk tb_pipeline.in_1 tb_pipeline.in_2 tb_pipeline.in_3 tb_pipeline.out
+Created probe 1
+xcelium> run
+Simulation complete via $finish(1) at time 255 NS + 0
+./tb_pipeline.v:42 $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xmsim(64)	22.03-s012: Exiting on Jun 30, 2026 at 20:03:20 KST  (total: 00:00:45)

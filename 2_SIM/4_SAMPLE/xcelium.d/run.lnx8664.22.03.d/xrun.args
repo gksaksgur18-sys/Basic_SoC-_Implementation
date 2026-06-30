@@ -1,0 +1,11 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+pipeline.v
+tb_pipeline.v
+-input
+run.tcl
+-access
+rwc
+-gui
