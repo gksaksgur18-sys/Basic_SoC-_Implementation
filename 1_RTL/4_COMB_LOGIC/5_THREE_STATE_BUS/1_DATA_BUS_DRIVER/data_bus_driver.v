@@ -6,10 +6,18 @@ module data_bus_driver(
 	input i_en_b		,
 	output [7:0] o_bus_data	
 );
+
+// xor's output 
+wire w_select		;
+// mux's output
+wire [7:0] w_mux_out	;
+
+
+
+
+
 // 1.
 assign o_bus_data = (i_en_a) ? i_data_a : (i_en_b) ? i_data_b : 8'bz;
-
-
 
 
 
