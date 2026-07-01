@@ -1,6 +1,0 @@
-//
-// File created by:  xrun
-// Do not modify this file
-
-s1::(30Jun2026:18:25:34):( xrun pipeline.v tb_pipeline.v -input run.tcl -gui )
-s2::(30Jun2026:18:27:36):( xrun pipeline.v tb_pipeline.v -input run.tcl -access rwc -gui )
