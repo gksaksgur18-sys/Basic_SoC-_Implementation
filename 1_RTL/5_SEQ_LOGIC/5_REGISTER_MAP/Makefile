@@ -11,9 +11,9 @@ set:
 compile: 
 	xmvlog -MESS -linedebug ./*v
 elab:
-	xmelab -MESS -access +rwc tb_fdivider
+	xmelab -MESS -access rwc tb_simple_register
 sim:
-	xmsim -MESS tb_fdivider -gui
+	xmsim -MESS tb_simple_register -gui
 
 
 all: clean set compile elab sim

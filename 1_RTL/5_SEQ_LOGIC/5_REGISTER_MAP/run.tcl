@@ -8,7 +8,7 @@ echo "define WORK work_lib" >> ./hdl.var
 xmvlog -MESS -linedebug ./*v
 
 # Elaborate compiled sources
-xmelab -MESS -access +rwc tb_fdivider
+xmelab -MESS -access +rwc tb_simple_register
 
 # run simulation in CLI mode
-xmsim -MESS tb_fdivider -gui
+xmsim -MESS tb_simple_register -gui
