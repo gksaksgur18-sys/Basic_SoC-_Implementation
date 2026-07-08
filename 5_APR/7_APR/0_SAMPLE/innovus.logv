@@ -1,0 +1,229 @@
+[07/08 19:48:18      0s] 
+[07/08 19:48:18      0s] Cadence Innovus(TM) Implementation System.
+[07/08 19:48:18      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[07/08 19:48:18      0s] 
+[07/08 19:48:18      0s] Version:	v22.17-s086_1, built Tue Sep 24 10:51:50 PDT 2024
+[07/08 19:48:18      0s] Options:	-stylus 
+[07/08 19:48:18      0s] Date:		Wed Jul  8 19:48:18 2026
+[07/08 19:48:18      0s] Host:		kopo-seongnam (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (20cores*80cpus*Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz 28160KB)
+[07/08 19:48:18      0s] OS:		CentOS Linux 7 (Core)
+[07/08 19:48:18      0s] 
+[07/08 19:48:18      0s] License:
+[07/08 19:48:18      0s] 		[19:48:18.163321] Configured Lic search path (22.01-s003): 5280@172.31.52.241
+[07/08 19:48:18      0s] 
+[07/08 19:48:18      0s] 		invs	Innovus Implementation System	22.1	Denied
+[07/08 19:48:18      0s] 		invsb	Innovus Implementation System Basic	22.1	checkout succeeded
+[07/08 19:48:18      0s] 		4 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[07/08 19:48:19      0s] **ERROR: (IMPOAX-8053):	Could not open shared library libinnovusoax22.so : liboaPrivateCDS.so: cannot open shared object file: No such file or directory.
+[07/08 19:48:19      0s] **ERROR: (IMPOAX-8053):	Could not open shared library libcdsSkillPcell.so : /tools/cadence/DDI221/INNOVUS221/tools.lnx86/innovus/bin/64bit/../../../lib/64bit/libcdsSkillPcell.so: undefined symbol: _ZTIN12OpenAccess_413oaFSComponentE.
+[07/08 19:48:19      0s] **ERROR: (IMPOAX-8033):	OpenAccess features will be disabled in this session.
+[07/08 19:48:34     15s] 
+[07/08 19:48:34     15s] 
+[07/08 19:48:41     22s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.17-s086_1 (64bit) 09/24/2024 10:51 (Linux 3.10.0-693.el7.x86_64)
+[07/08 19:48:44     25s] @(#)CDS: NanoRoute 22.17-s086_1 NR240905-1647/22_17-UB (database version 18.20.629) {superthreading v2.20}
+[07/08 19:48:44     25s] @(#)CDS: AAE 22.17-s013 (64bit) 09/24/2024 (Linux 3.10.0-693.el7.x86_64)
+[07/08 19:48:44     25s] @(#)CDS: CTE 22.17-s017_1 () Sep 12 2024 04:53:54 ( )
+[07/08 19:48:44     25s] @(#)CDS: SYNTECH 22.17-s006_1 () Aug 12 2024 03:52:27 ( )
+[07/08 19:48:44     25s] @(#)CDS: CPE v22.17-s051
+[07/08 19:48:44     25s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[07/08 19:48:44     25s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[07/08 19:48:44     25s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[07/08 19:48:44     25s] @(#)CDS: RCDB 11.15.0
+[07/08 19:48:44     25s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[07/08 19:48:44     25s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[07/08 19:48:44     25s] Create and set the environment variable TMPDIR to /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE/innovus_temp_148134_f4d5c702-8e58-4c5f-aab3-2ccc7c773d53_kopo-seongnam_hah004_4jbr9H.
+
+[07/08 19:48:44     25s] Create and set the environment variable TMPDIR to /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE/innovus_temp_148134_f4d5c702-8e58-4c5f-aab3-2ccc7c773d53_kopo-seongnam_hah004_4jbr9H.
+[07/08 19:48:44     25s] 
+[07/08 19:48:44     25s] Change the soft stacksize limit to 0.2%RAM (770 mbytes). Set global soft_stack_size_limit to change the value.
+[07/08 19:48:45     25s] [INFO] Loading PVS 20.11 fill procedures
+[07/08 19:48:47     27s] 
+[07/08 19:48:47     27s] **INFO:  MMMC transition support version v31-84 
+[07/08 19:48:47     27s] 
+[07/08 19:48:51     31s] @innovus 1> **ERROR: (IMPOAX-820):	The OpenAccess (OA) features are disabled in the current session of Innovus because the oax shared library could not be loaded properly. This could be because your installation was not properly configured. To enable OA features, exit the current session and re-launch Innovus either after fixing your installation by running the Configure Installation phase, or after setting the OA_HOME variable to point to a proper OA installation. Check the "OpenAccess Installation and Configuration Guide" manual for more information.
+[07/08 19:49:48     34s] 
+[07/08 19:49:48     34s] **ERROR: (IMPOAX-850):	getG2Libs command cannot be run as OpenAccess features are disabled in this session.
+[07/08 19:49:48     34s] **ERROR: (IMPQTF-4044):	Error occurs when '::Rda_Design::Input::update' is executed with the error message: ''. This is probably an inner GUI action error. Use the TCL command directly instead of the GUI interactive.
+[07/08 19:49:56     35s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:49:56     35s] The MMMC init sequence looks like this: 
+[07/08 19:49:56     35s] read_mmmc top.mmmc 
+[07/08 19:49:56     35s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:49:56     35s] read_netlist top.v 
+[07/08 19:49:56     35s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:49:56     35s] init_design 
+[07/08 19:49:56     35s] 
+[07/08 19:49:56     35s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:49:56     35s] read_libs all.lib 
+[07/08 19:49:56     35s] read_netlist top.v 
+[07/08 19:49:56     35s] read_sdc top.sdc 
+[07/08 19:49:56     35s] init_design 
+[07/08 19:49:56     35s] 
+[07/08 19:49:56     35s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:49:56     35s] Common UI User Guide for more details.
+[07/08 19:49:58     35s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:49:58     35s] The MMMC init sequence looks like this: 
+[07/08 19:49:58     35s] read_mmmc top.mmmc 
+[07/08 19:49:58     35s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:49:58     35s] read_netlist top.v 
+[07/08 19:49:58     35s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:49:58     35s] init_design 
+[07/08 19:49:58     35s] 
+[07/08 19:49:58     35s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:49:58     35s] read_libs all.lib 
+[07/08 19:49:58     35s] read_netlist top.v 
+[07/08 19:49:58     35s] read_sdc top.sdc 
+[07/08 19:49:58     35s] init_design 
+[07/08 19:49:58     35s] 
+[07/08 19:49:58     35s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:49:58     35s] Common UI User Guide for more details.
+[07/08 19:51:03     39s] gui_select -point {0.01600 0.08600}
+[07/08 19:51:03     39s] @innovus 2> **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:10     39s] The MMMC init sequence looks like this: 
+[07/08 19:51:10     39s] read_mmmc top.mmmc 
+[07/08 19:51:10     39s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:10     39s] read_netlist top.v 
+[07/08 19:51:10     39s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:10     39s] init_design 
+[07/08 19:51:10     39s] 
+[07/08 19:51:10     39s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:10     39s] read_libs all.lib 
+[07/08 19:51:10     39s] read_netlist top.v 
+[07/08 19:51:10     39s] read_sdc top.sdc 
+[07/08 19:51:10     39s] init_design 
+[07/08 19:51:10     39s] 
+[07/08 19:51:10     39s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:10     39s] Common UI User Guide for more details.
+[07/08 19:51:11     39s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:11     39s] The MMMC init sequence looks like this: 
+[07/08 19:51:11     39s] read_mmmc top.mmmc 
+[07/08 19:51:11     39s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:11     39s] read_netlist top.v 
+[07/08 19:51:11     39s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:11     39s] init_design 
+[07/08 19:51:11     39s] 
+[07/08 19:51:11     39s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:11     39s] read_libs all.lib 
+[07/08 19:51:11     39s] read_netlist top.v 
+[07/08 19:51:11     39s] read_sdc top.sdc 
+[07/08 19:51:11     39s] init_design 
+[07/08 19:51:11     39s] 
+[07/08 19:51:11     39s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:11     39s] Common UI User Guide for more details.
+[07/08 19:51:11     39s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:11     39s] The MMMC init sequence looks like this: 
+[07/08 19:51:11     39s] read_mmmc top.mmmc 
+[07/08 19:51:11     39s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:11     39s] read_netlist top.v 
+[07/08 19:51:11     39s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:11     39s] init_design 
+[07/08 19:51:11     39s] 
+[07/08 19:51:11     39s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:11     39s] read_libs all.lib 
+[07/08 19:51:11     39s] read_netlist top.v 
+[07/08 19:51:11     39s] read_sdc top.sdc 
+[07/08 19:51:11     39s] init_design 
+[07/08 19:51:11     39s] 
+[07/08 19:51:11     39s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:11     39s] Common UI User Guide for more details.
+[07/08 19:51:12     40s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:12     40s] The MMMC init sequence looks like this: 
+[07/08 19:51:12     40s] read_mmmc top.mmmc 
+[07/08 19:51:12     40s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:12     40s] read_netlist top.v 
+[07/08 19:51:12     40s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:12     40s] init_design 
+[07/08 19:51:12     40s] 
+[07/08 19:51:12     40s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:12     40s] read_libs all.lib 
+[07/08 19:51:12     40s] read_netlist top.v 
+[07/08 19:51:12     40s] read_sdc top.sdc 
+[07/08 19:51:12     40s] init_design 
+[07/08 19:51:12     40s] 
+[07/08 19:51:12     40s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:12     40s] Common UI User Guide for more details.
+[07/08 19:51:12     40s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:12     40s] The MMMC init sequence looks like this: 
+[07/08 19:51:12     40s] read_mmmc top.mmmc 
+[07/08 19:51:12     40s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:12     40s] read_netlist top.v 
+[07/08 19:51:12     40s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:12     40s] init_design 
+[07/08 19:51:12     40s] 
+[07/08 19:51:12     40s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:12     40s] read_libs all.lib 
+[07/08 19:51:12     40s] read_netlist top.v 
+[07/08 19:51:12     40s] read_sdc top.sdc 
+[07/08 19:51:12     40s] init_design 
+[07/08 19:51:12     40s] 
+[07/08 19:51:12     40s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:12     40s] Common UI User Guide for more details.
+[07/08 19:51:12     40s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:12     40s] The MMMC init sequence looks like this: 
+[07/08 19:51:12     40s] read_mmmc top.mmmc 
+[07/08 19:51:12     40s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:12     40s] read_netlist top.v 
+[07/08 19:51:12     40s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:12     40s] init_design 
+[07/08 19:51:12     40s] 
+[07/08 19:51:12     40s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:12     40s] read_libs all.lib 
+[07/08 19:51:12     40s] read_netlist top.v 
+[07/08 19:51:12     40s] read_sdc top.sdc 
+[07/08 19:51:12     40s] init_design 
+[07/08 19:51:12     40s] 
+[07/08 19:51:12     40s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:12     40s] Common UI User Guide for more details.
+[07/08 19:51:13     40s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:13     40s] The MMMC init sequence looks like this: 
+[07/08 19:51:13     40s] read_mmmc top.mmmc 
+[07/08 19:51:13     40s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:13     40s] read_netlist top.v 
+[07/08 19:51:13     40s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:13     40s] init_design 
+[07/08 19:51:13     40s] 
+[07/08 19:51:13     40s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:13     40s] read_libs all.lib 
+[07/08 19:51:13     40s] read_netlist top.v 
+[07/08 19:51:13     40s] read_sdc top.sdc 
+[07/08 19:51:13     40s] init_design 
+[07/08 19:51:13     40s] 
+[07/08 19:51:13     40s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:13     40s] Common UI User Guide for more details.
+[07/08 19:51:13     40s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[07/08 19:51:13     40s] The MMMC init sequence looks like this: 
+[07/08 19:51:13     40s] read_mmmc top.mmmc 
+[07/08 19:51:13     40s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[07/08 19:51:13     40s] read_netlist top.v 
+[07/08 19:51:13     40s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[07/08 19:51:13     40s] init_design 
+[07/08 19:51:13     40s] 
+[07/08 19:51:13     40s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[07/08 19:51:13     40s] read_libs all.lib 
+[07/08 19:51:13     40s] read_netlist top.v 
+[07/08 19:51:13     40s] read_sdc top.sdc 
+[07/08 19:51:13     40s] init_design 
+[07/08 19:51:13     40s] 
+[07/08 19:51:13     40s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[07/08 19:51:13     40s] Common UI User Guide for more details.
+[07/08 19:51:15     40s] gui_select -point {0.09500 0.08000}
+[07/08 19:51:15     40s] @innovus 3> 
+[07/08 19:53:03     45s] --------------------------------------------------------------------------------
+[07/08 19:53:03     45s] Exiting Innovus on Wed Jul  8 19:53:03 2026
+[07/08 19:53:03     45s]   Total CPU time:     0:00:46
+[07/08 19:53:03     45s]   Total real time:    0:04:47
+[07/08 19:53:03     45s]   Peak memory (main): 1336.94MB
+[07/08 19:53:03     45s] 
+[07/08 19:53:03     45s] 
+[07/08 19:53:03     45s] *** Memory Usage v#1 (Current mem = 1635.988M, initial mem = 662.375M) ***
+[07/08 19:53:03     45s] 
+[07/08 19:53:03     45s] *** Summary of all messages that are not suppressed in this session:
+[07/08 19:53:03     45s] Severity  ID               Count  Summary                                  
+[07/08 19:53:03     45s] ERROR     IMPOAX-820           1  The OpenAccess (OA) features are disable...
+[07/08 19:53:03     45s] ERROR     IMPOAX-850           1  %s command cannot be run as OpenAccess f...
+[07/08 19:53:03     45s] ERROR     IMPOAX-8033          1  OpenAccess features will be disabled in ...
+[07/08 19:53:03     45s] ERROR     IMPOAX-8053          2  Could not open shared library %s : %s.   
+[07/08 19:53:03     45s] ERROR     IMPQTF-4044          1  Error occurs when '%s' is executed with ...
+[07/08 19:53:03     45s] ERROR     IMPIMEX-12          10  'init_design' failed. You are missing on...
+[07/08 19:53:03     45s] *** Message Summary: 0 warning(s), 16 error(s)
+[07/08 19:53:03     45s] 
+[07/08 19:53:03     45s] --- Ending "Innovus" (totcpu=0:00:45.8, real=0:04:45, mem=1636.0M) ---

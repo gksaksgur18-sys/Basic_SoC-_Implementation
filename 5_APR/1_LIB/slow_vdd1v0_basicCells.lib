@@ -1525,7 +1525,7 @@ library (slow_vdd1v0) {
     leakage_power () {
       value : 291.623;
       when : "(A&B&CI)";
-      relatew_pg_pin : VDD;
+      related_pg_pin : VDD;
     }
     leakage_power () {
       value : 299.211;
