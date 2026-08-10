@@ -1,7 +1,7 @@
 set_db init_lib_search_path ../../1_LIB
-set_db init_hdl_search_path ../4_COMB_LOGIC/5_THREE_STATE_BUS/3_BIDIRECTIONAL_BUS_DRIVER
+set_db init_hdl_search_path ../../../1_RTL/2_TINY_PROJECT
 read_libs slow_vdd1v0_basicCells.lib
-read_hdl bidirectional_bus_driver.v
+read_hdl counter_100.v
 
 elaborate
 
@@ -19,6 +19,6 @@ report_power > ./reports/report_power.rpt
 report_area > ./reports/report_area.rpt
 report_qor > ./reports/report_qor.rpt
 
-write_hdl > ./outputs/bidirectional_bus_driver_netlist.v
-write_sdc > ./outputs/bidirectional_bus_driver_sdc.sdc
+write_hdl > ./outputs/counter_100_netlist.v
+write_sdc > ./outputs/counter_100_sdc.sdc
 

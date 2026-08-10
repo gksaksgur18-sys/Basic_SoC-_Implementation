@@ -7,7 +7,7 @@ set:
 	echo "define work_lib ./work.lib" >> ./cds.lib
 	echo "define WORK work_lib" >> ./hdl.var
 compile:
-	xmvlog -MESS -linedebug ./*v
+	xmvlog -MESS -linedebug ./counter_100.v ./tb_counter_100.v
 elab:
 	xmelab -MESS -access rwc tb_counter_100
 
@@ -16,4 +16,3 @@ sim:
 
 
 all: clean set compile elab sim
-

@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Wed Jul  8 19:55:06 2026                
+#  Created on Wed Jul  8 23:35:58 2026                
 #                                                     
 #######################################################
 
@@ -13,7 +13,6 @@
 #@(#)CDS: CPE v22.17-s051
 #@(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
 
-gui_select -point {0.09000 0.09800}
 set_db init_power_nets VDD
 set_db init_ground_nets VSS
 read_mmmc sample.view
@@ -53,36 +52,26 @@ connect_global_net VDD -type pg_pin -pin VDD -inst_base_name *
 connect_global_net VSS -type pg_pin -pin VSS -inst_base_name *
 set_db route_special_via_connect_to_shape { noshape }
 route_special -connect core_pin -layer_change_range { Metal1(1) Metal11(11) } -block_pin_target nearest_target -core_pin_target first_after_row_end -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal11(11) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal11(11) }
-set_db place_design_floorplan_mode false
-place_design
-create_tree_spec
-create_tree_spec
-set_db route_detail_fix_antenna 1
-set_db route_antenna_diode_insertion 0
-set_db route_with_timing_driven 1
-set_db route_with_eco 0
-set_db route_with_litho_driven 0
-set_db route_detail_post_route_litho_repair 0
-set_db route_with_si_driven 1
-set_db route_detail_auto_stop 0
-set_db route_selected_net_only 0
-set_db design_top_routing_layer 11
-set_db design_bottom_routing_layer 1
-set_db route_detail_end_iteration 1
-set_db route_with_timing_driven true
-set_db route_with_si_driven true
-route_design -global_detail -via_opt -wire_opt
-add_fillers -base_cells FILL8 FILL64 FILL4 FILL32 FILL2 FILL16 FILL1 -prefix FILLER
-set_db check_drc_disable_rules {}
-set_db check_drc_ndr_spacing auto
-set_db check_drc_check_only default
-set_db check_drc_inside_via_def true
-set_db check_drc_exclude_pg_net false
-set_db check_drc_ignore_trial_route false
-set_db check_drc_ignore_cell_blockage false
-set_db check_drc_use_min_spacing_on_block_obs auto
-set_db check_drc_report counter.drc.rpt
-set_db check_drc_limit 1000
-check_drc
-set_db check_drc_area {0 0 0 0}
-check_connectivity -type all -geometry_connect -error 1000 -warning 50
+set_db route_special_via_connect_to_shape { noshape }
+route_special -connect core_pin -layer_change_range { Metal1(1) Metal11(11) } -block_pin_target nearest_target -core_pin_target first_after_row_end -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal11(11) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal11(11) }
+set_db add_stripes_ignore_block_check false
+set_db add_stripes_break_at none
+set_db add_stripes_route_over_rows_only false
+set_db add_stripes_rows_without_stripes_only false
+set_db add_stripes_extend_to_closest_target none
+set_db add_stripes_stop_at_last_wire_for_area false
+set_db add_stripes_partial_set_through_domain false
+set_db add_stripes_ignore_non_default_domains false
+set_db add_stripes_trim_antenna_back_to_shape none
+set_db add_stripes_spacing_type edge_to_edge
+set_db add_stripes_spacing_from_block 0
+set_db add_stripes_stripe_min_length stripe_width
+set_db add_stripes_stacked_via_top_layer Metal11
+set_db add_stripes_stacked_via_bottom_layer Metal1
+set_db add_stripes_via_using_exact_crossover_size false
+set_db add_stripes_split_vias false
+set_db add_stripes_orthogonal_only true
+set_db add_stripes_allow_jog { padcore_ring  block_ring }
+set_db add_stripes_skip_via_on_pin {  standardcell }
+set_db add_stripes_skip_via_on_wire_shape {  noshape   }
+add_stripes -nets {VDD VSS} -layer Metal10 -direction vertical -width .22 -spacing .2 -set_to_set_distance 5 -start_from left -start_offset 1 -stop_offset 0 -switch_layer_over_obs false -max_same_layer_jog_length 2 -pad_core_ring_top_layer_limit Metal11 -pad_core_ring_bottom_layer_limit Metal1 -block_ring_top_layer_limit Metal11 -block_ring_bottom_layer_limit Metal1 -use_wire_group 0 -snap_wire_center_to_grid none

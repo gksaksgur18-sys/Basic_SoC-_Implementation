@@ -1,0 +1,818 @@
+[07/08 23:35:30      0s] 
+[07/08 23:35:30      0s] Cadence Innovus(TM) Implementation System.
+[07/08 23:35:30      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[07/08 23:35:30      0s] 
+[07/08 23:35:30      0s] Version:	v22.17-s086_1, built Tue Sep 24 10:51:50 PDT 2024
+[07/08 23:35:30      0s] Options:	-stylus 
+[07/08 23:35:30      0s] Date:		Wed Jul  8 23:35:30 2026
+[07/08 23:35:30      0s] Host:		kopo-seongnam (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (20cores*80cpus*Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz 28160KB)
+[07/08 23:35:30      0s] OS:		CentOS Linux 7 (Core)
+[07/08 23:35:30      0s] 
+[07/08 23:35:30      0s] License:
+[07/08 23:35:30      0s] 		[23:35:30.158593] Configured Lic search path (22.01-s003): 5280@localhost
+[07/08 23:35:30      0s] 
+[07/08 23:35:30      0s] 		invs	Innovus Implementation System	22.1	Denied
+[07/08 23:35:30      0s] 		invsb	Innovus Implementation System Basic	22.1	checkout succeeded
+[07/08 23:35:30      0s] 		4 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[07/08 23:35:47     16s] 
+[07/08 23:35:47     16s] 
+[07/08 23:35:54     22s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.17-s086_1 (64bit) 09/24/2024 10:51 (Linux 3.10.0-693.el7.x86_64)
+[07/08 23:35:57     25s] @(#)CDS: NanoRoute 22.17-s086_1 NR240905-1647/22_17-UB (database version 18.20.629) {superthreading v2.20}
+[07/08 23:35:57     25s] @(#)CDS: AAE 22.17-s013 (64bit) 09/24/2024 (Linux 3.10.0-693.el7.x86_64)
+[07/08 23:35:57     25s] @(#)CDS: CTE 22.17-s017_1 () Sep 12 2024 04:53:54 ( )
+[07/08 23:35:57     25s] @(#)CDS: SYNTECH 22.17-s006_1 () Aug 12 2024 03:52:27 ( )
+[07/08 23:35:57     25s] @(#)CDS: CPE v22.17-s051
+[07/08 23:35:57     25s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[07/08 23:35:57     25s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[07/08 23:35:57     25s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[07/08 23:35:57     25s] @(#)CDS: RCDB 11.15.0
+[07/08 23:35:57     25s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[07/08 23:35:57     25s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[07/08 23:35:57     25s] Create and set the environment variable TMPDIR to /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE/innovus_temp_209645_f5bde4a5-8469-42dd-9d14-9e3afe531177_kopo-seongnam_hah004_NLEFsR.
+
+[07/08 23:35:57     25s] Create and set the environment variable TMPDIR to /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE/innovus_temp_209645_f5bde4a5-8469-42dd-9d14-9e3afe531177_kopo-seongnam_hah004_NLEFsR.
+[07/08 23:35:57     25s] 
+[07/08 23:35:57     25s] Change the soft stacksize limit to 0.2%RAM (770 mbytes). Set global soft_stack_size_limit to change the value.
+[07/08 23:36:00     28s] 
+[07/08 23:36:00     28s] **INFO:  MMMC transition support version v31-84 
+[07/08 23:36:00     28s] 
+[07/08 23:36:04     32s] @innovus 1> set_db init_power_nets VDD
+[07/08 23:43:30    157s] @innovus 2> set_db init_ground_nets VSS
+[07/08 23:43:30    157s] @innovus 3> #################################
+[07/08 23:43:30    157s] read_mmmc sample.view
+[07/08 23:43:30    157s] #################################
+[07/08 23:43:30    157s] #@ Begin verbose source sample.view (pre)
+[07/08 23:43:30    157s] @file 1:
+[07/08 23:43:30    157s] @@file 2: create_library_set -name max_timing\
+[07/08 23:43:30    157s]    -timing ../../1_LIB/slow_vdd1v0_basicCells.lib
+[07/08 23:43:30    157s] @file 4:
+[07/08 23:43:30    157s] @@file 5: create_library_set -name min_timing\
+[07/08 23:43:30    157s]    -timing ../../1_LIB/fast_vdd1v0_basicCells.lib
+[07/08 23:43:30    157s] @file 7:
+[07/08 23:43:30    157s] @@file 8: create_timing_condition -name default_mapping_tc_2\
+[07/08 23:43:30    157s]    -library_sets min_timing
+[07/08 23:43:30    157s] @@file 10: create_timing_condition -name default_mapping_tc_1\
+[07/08 23:43:30    157s]    -library_sets max_timing
+[07/08 23:43:30    157s] @file 12:
+[07/08 23:43:30    157s] @@file 13: create_rc_corner -name rccorners\
+[07/08 23:43:30    157s]    -cap_table ../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl\
+[07/08 23:43:30    157s]    -pre_route_res 1\
+[07/08 23:43:30    157s]    -post_route_res 1\
+[07/08 23:43:30    157s]    -pre_route_cap 1\
+[07/08 23:43:30    157s]    -post_route_cap 1\
+[07/08 23:43:30    157s]    -post_route_cross_cap 1\
+[07/08 23:43:30    157s]    -pre_route_clock_res 0\
+[07/08 23:43:30    157s]    -pre_route_clock_cap 0\
+[07/08 23:43:30    157s]    -qrc_tech ../../5_QRC_TECH/gpdk045.tch
+[07/08 23:43:30    157s] @file 23:
+[07/08 23:43:30    157s] @@file 24: create_delay_corner -name max_delay\
+[07/08 23:43:30    157s]    -timing_condition {default_mapping_tc_1}\
+[07/08 23:43:30    157s]    -rc_corner rccorners
+[07/08 23:43:31    157s] @@file 27: create_delay_corner -name min_delay\
+[07/08 23:43:31    157s]    -timing_condition {default_mapping_tc_2}\
+[07/08 23:43:31    157s]    -rc_corner rccorners
+[07/08 23:43:31    157s] @file 30:
+[07/08 23:43:31    157s] @@file 31: create_constraint_mode -name sdc_cons\
+[07/08 23:43:31    157s]    -sdc_files\
+[07/08 23:43:31    157s]     ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc
+[07/08 23:43:31    157s] @file 34:
+[07/08 23:43:31    157s] @@file 35: create_analysis_view -name wc -constraint_mode sdc_cons -delay_corner max_delay
+[07/08 23:43:31    157s] @@file 36: create_analysis_view -name bc -constraint_mode sdc_cons -delay_corner min_delay
+[07/08 23:43:31    157s] @file 37:
+[07/08 23:43:31    157s] @@file 38: set_analysis_view -setup wc -hold bc
+[07/08 23:43:31    157s] @file 39:
+[07/08 23:43:31    157s] @file 40:
+[07/08 23:43:31    157s] #@ End verbose source sample.view
+[07/08 23:43:31    157s] Reading max_timing timing library '/home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/slow_vdd1v0_basicCells.lib' ...
+[07/08 23:43:31    157s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/slow_vdd1v0_basicCells.lib)
+[07/08 23:43:31    157s] Read 480 cells in library 'slow_vdd1v0' 
+[07/08 23:43:31    157s] Reading min_timing timing library '/home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/fast_vdd1v0_basicCells.lib' ...
+[07/08 23:43:32    158s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/fast_vdd1v0_basicCells.lib)
+[07/08 23:43:32    158s] Read 480 cells in library 'fast_vdd1v0' 
+[07/08 23:43:32    158s] Ending "PreSetAnalysisView" (total cpu=0:00:01.5, real=0:00:01.0, peak res=1445.0M, current mem=1384.8M)
+[07/08 23:43:32    158s] #################################
+[07/08 23:43:32    158s] read_physical -lef {../../3_LEF/gsclib045_tech.lef ../../3_LEF/gsclib045_macro.lef}
+[07/08 23:43:32    158s] #################################
+[07/08 23:43:32    158s] 
+[07/08 23:43:32    158s] Loading LEF file ../../3_LEF/gsclib045_tech.lef ...
+[07/08 23:43:32    158s] Set DBUPerIGU to M2 pitch 400.
+[07/08 23:43:32    158s] 
+[07/08 23:43:32    158s] Loading LEF file ../../3_LEF/gsclib045_macro.lef ...
+[07/08 23:43:32    158s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[07/08 23:43:32    158s] Type 'man IMPLF-200' for more detail.
+[07/08 23:43:32    158s] 
+[07/08 23:43:32    158s] ##  Check design process and node:  
+[07/08 23:43:32    158s] ##  Both design process and tech node are not set.
+[07/08 23:43:32    158s] 
+[07/08 23:43:32    158s] #################################
+[07/08 23:43:32    158s] read_netlist ../../6_GLN/0_SAMPLE/counter_netlist.v
+[07/08 23:43:32    158s] #################################
+[07/08 23:43:32    158s] #% Begin Load netlist data ... (date=07/08 23:43:32, mem=1392.5M)
+[07/08 23:43:32    158s] *** Begin netlist parsing (mem=1649.1M) ***
+[07/08 23:43:32    158s] Created 480 new cells from 2 timing libraries.
+[07/08 23:43:32    158s] Reading netlist ...
+[07/08 23:43:32    158s] Backslashed names will retain backslash and a trailing blank character.
+[07/08 23:43:32    158s] Reading verilog netlist '../../6_GLN/0_SAMPLE/counter_netlist.v'
+[07/08 23:43:32    158s] 
+[07/08 23:43:32    158s] *** Memory Usage v#1 (Current mem = 1652.078M, initial mem = 654.375M) ***
+[07/08 23:43:32    158s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1652.1M) ***
+[07/08 23:43:32    158s] #% End Load netlist data ... (date=07/08 23:43:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=1403.0M, current mem=1403.0M)
+[07/08 23:43:32    158s] Top level cell is counter.
+[07/08 23:43:32    159s] Hooked 960 DB cells to tlib cells.
+[07/08 23:43:32    159s] Ending "BindLib:" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1421.2M, current mem=1421.2M)
+[07/08 23:43:32    159s] Starting recursive module instantiation check.
+[07/08 23:43:32    159s] No recursion found.
+[07/08 23:43:32    159s] Building hierarchical netlist for Cell counter ...
+[07/08 23:43:32    159s] ***** UseNewTieNetMode *****.
+[07/08 23:43:33    159s] *** Netlist is unique.
+[07/08 23:43:33    159s] Setting Std. cell height to 3420 DBU (smallest netlist inst).
+[07/08 23:43:33    159s] ** info: there are 1055 modules.
+[07/08 23:43:33    159s] ** info: there are 21 stdCell insts.
+[07/08 23:43:33    159s] ** info: there are 21 stdCell insts with at least one signal pin.
+[07/08 23:43:33    159s] 
+[07/08 23:43:33    159s] *** Memory Usage v#1 (Current mem = 1714.504M, initial mem = 654.375M) ***
+[07/08 23:43:33    159s] **WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[07/08 23:43:33    159s] Type 'man IMPFP-3961' for more detail.
+[07/08 23:43:33    159s] **WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[07/08 23:43:33    159s] Type 'man IMPFP-3961' for more detail.
+[07/08 23:43:33    159s] Start create_tracks
+[07/08 23:43:33    159s] Extraction setup Started 
+[07/08 23:43:33    159s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[07/08 23:43:33    159s] **WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for pre_route and post_route extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for pre_route and post_route (effort level medium/high/signoff) extraction engines.
+[07/08 23:43:33    159s] Type 'man IMPEXT-6202' for more detail.
+[07/08 23:43:33    159s] Reading Capacitance Table File ../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl ...
+[07/08 23:43:33    159s] Cap table was created using Encounter 10.10-b056_1.
+[07/08 23:43:33    159s] Process name: cln28hpl_1p10m+alrdl_5x2yu2yz_typical.
+[07/08 23:43:33    159s] Set Shrink Factor to 0.90000
+[07/08 23:43:33    159s] Importing multi-corner RC tables ... 
+[07/08 23:43:33    159s] Summary of Active RC-Corners : 
+[07/08 23:43:33    159s]  
+[07/08 23:43:33    159s]  Analysis View: wc
+[07/08 23:43:33    159s]     RC-Corner Name        : rccorners
+[07/08 23:43:33    159s]     RC-Corner Index       : 0
+[07/08 23:43:33    159s]     RC-Corner Temperature : 25 Celsius
+[07/08 23:43:33    159s]     RC-Corner Cap Table   : '../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl'
+[07/08 23:43:33    159s]     RC-Corner PreRoute Res Factor         : 1
+[07/08 23:43:33    159s]     RC-Corner PreRoute Cap Factor         : 1
+[07/08 23:43:33    159s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[07/08 23:43:33    159s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[07/08 23:43:33    159s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[07/08 23:43:33    159s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[07/08 23:43:33    159s]     RC-Corner Technology file: '../../5_QRC_TECH/gpdk045.tch'
+[07/08 23:43:33    159s]  
+[07/08 23:43:33    159s]  Analysis View: bc
+[07/08 23:43:33    159s]     RC-Corner Name        : rccorners
+[07/08 23:43:33    159s]     RC-Corner Index       : 0
+[07/08 23:43:33    159s]     RC-Corner Temperature : 25 Celsius
+[07/08 23:43:33    159s]     RC-Corner Cap Table   : '../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl'
+[07/08 23:43:33    159s]     RC-Corner PreRoute Res Factor         : 1
+[07/08 23:43:33    159s]     RC-Corner PreRoute Cap Factor         : 1
+[07/08 23:43:33    159s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[07/08 23:43:33    159s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[07/08 23:43:33    159s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[07/08 23:43:33    159s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[07/08 23:43:33    159s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[07/08 23:43:33    159s]     RC-Corner Technology file: '../../5_QRC_TECH/gpdk045.tch'
+[07/08 23:43:33    159s] eee: RC Grid memory allocated = 528 (2 X 2 X 11 X 12b)
+[07/08 23:43:33    159s] eee: pegSigSF=1.070000
+[07/08 23:43:33    159s] Updating RC Grid density data for preRoute extraction ...
+[07/08 23:43:33    159s] Initializing multi-corner capacitance tables ... 
+[07/08 23:43:33    159s] Initializing multi-corner resistance tables ...
+[07/08 23:43:33    159s] Creating RPSQ from WeeR and WRes ...
+[07/08 23:43:33    159s] eee: Grid unit RC data computation started
+[07/08 23:43:33    159s] eee: Grid unit RC data computation completed
+[07/08 23:43:33    159s] eee: l=1 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=2 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=3 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=4 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=5 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=6 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=7 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=8 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=9 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=10 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] eee: l=11 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[07/08 23:43:33    159s] {RT rccorners 0 11 11 {7 0} {10 0} 2}
+[07/08 23:43:33    159s] eee: LAM-FP: thresh=1 ; dimX=63.763158 ; dimY=45.000000 ; multX=1.000000 ; multY=1.000000 ; minP=380 ; fpMult=1.000000 ;
+[07/08 23:43:33    159s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 pModAss=50 wcR=0.772700 crit=0.000000 siPrev=0 newSi=0.000000 wHLS=1.931800 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[07/08 23:43:33    159s] eee: NetCapCache creation started. (Current Mem: 1884.637M) 
+[07/08 23:43:33    159s] eee: NetCapCache completed. (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  Curr Mem: 1884.637M) 
+[07/08 23:43:33    159s] eee: dbu = 2000, Design = [ll(0.000000, 0.000000) ur(12.115000, 8.550000)], Layers = [f(11) b(0)], Grid size = 17.100000 um, Grid Dim = (1 X 1)
+[07/08 23:43:33    159s] eee: Metal Layers Info:
+[07/08 23:43:33    159s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[07/08 23:43:33    159s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[07/08 23:43:33    159s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[07/08 23:43:33    159s] eee: |   Metal1 |   1 |   0.060 |   0.060 |   0.190 |  0.161 |   4.00 | H | 0 |  4 |
+[07/08 23:43:33    159s] eee: |   Metal2 |   2 |   0.080 |   0.070 |   0.200 |  0.161 |   3.81 | V | 0 |  4 |
+[07/08 23:43:33    159s] eee: |   Metal3 |   3 |   0.080 |   0.070 |   0.190 |  0.161 |   3.96 | H | 0 |  4 |
+[07/08 23:43:33    159s] eee: |   Metal4 |   4 |   0.080 |   0.070 |   0.200 |  0.159 |   3.81 | V | 0 |  4 |
+[07/08 23:43:33    159s] eee: |   Metal5 |   5 |   0.080 |   0.070 |   0.190 |  0.161 |   3.96 | H | 0 |  4 |
+[07/08 23:43:33    159s] eee: |   Metal6 |   6 |   0.080 |   0.070 |   0.200 |  0.158 |   3.81 | V | 0 |  4 |
+[07/08 23:43:33    159s] eee: |   Metal7 |   7 |   0.080 |   0.070 |   0.190 |  0.328 |   1.19 | H | 0 |  5 |
+[07/08 23:43:33    159s] eee: |   Metal8 |   8 |   0.080 |   0.070 |   0.200 |  0.351 |   1.08 | V | 0 |  5 |
+[07/08 23:43:33    159s] eee: |   Metal9 |   9 |   0.080 |   0.070 |   0.190 |  0.679 |   0.44 | H | 0 |  5 |
+[07/08 23:43:33    159s] eee: |  Metal10 |  10 |   0.220 |   0.200 |   0.500 |  0.370 |   0.16 | V | 0 |  4 |
+[07/08 23:43:33    159s] eee: |  Metal11 |  11 |   0.220 |   0.200 |   0.475 |  1.032 |   0.10 | H | 0 |  3 |
+[07/08 23:43:33    159s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[07/08 23:43:33    159s] eee: uC/uR for corner rccorners, min-width/min-spacing, 30 perc over/under densities.
+[07/08 23:43:33    159s] eee: +-----------------------NDR Info-----------------------+
+[07/08 23:43:33    159s] eee: Number of NDR:: 2,  Number of Fake NDR:: 0
+[07/08 23:43:33    159s] eee: +----------------------------------------------------+
+[07/08 23:43:33    159s] eee: | NDR Name:: LEFSpecialRouteSpec  | Id:: 1  | isHard:: 0 
+[07/08 23:43:33    159s] eee: +----------------------------------------------------+
+[07/08 23:43:33    159s] eee: +----------------------------------------------------+
+[07/08 23:43:33    159s] eee: | NDR Name:: VLMDefaultSetup  | Id:: 2  | isHard:: 0 
+[07/08 23:43:33    159s] eee: +----------------------------------------------------+
+[07/08 23:43:33    159s] *Info: initialize multi-corner CTS.
+[07/08 23:43:33    159s] Ending "SetAnalysisView" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1691.0M, current mem=1452.1M)
+[07/08 23:43:33    159s] Reading timing constraints file '../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc' ...
+[07/08 23:43:33    159s] Current (total cpu=0:02:40, real=0:08:03, peak res=1824.6M, current mem=1824.6M)
+[07/08 23:43:33    159s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc, Line 9).
+[07/08 23:43:33    159s] 
+[07/08 23:43:33    159s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc, Line 10).
+[07/08 23:43:33    159s] 
+[07/08 23:43:33    159s] counter
+[07/08 23:43:33    159s] INFO (CTE): Reading of timing constraints file ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc completed, with 2 WARNING
+[07/08 23:43:33    160s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1838.6M, current mem=1838.6M)
+[07/08 23:43:33    160s] Current (total cpu=0:02:40, real=0:08:03, peak res=1838.6M, current mem=1838.6M)
+[07/08 23:43:33    160s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[07/08 23:43:33    160s] 
+[07/08 23:43:33    160s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[07/08 23:43:33    160s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[07/08 23:43:33    160s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[07/08 23:43:33    160s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[07/08 23:43:33    160s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[07/08 23:43:33    160s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[07/08 23:43:33    160s] Summary for sequential cells identification: 
+[07/08 23:43:33    160s]   Identified SBFF number: 104
+[07/08 23:43:33    160s]   Identified MBFF number: 0
+[07/08 23:43:33    160s]   Identified SB Latch number: 0
+[07/08 23:43:33    160s]   Identified MB Latch number: 0
+[07/08 23:43:33    160s]   Not identified SBFF number: 16
+[07/08 23:43:33    160s]   Not identified MBFF number: 0
+[07/08 23:43:33    160s]   Not identified SB Latch number: 0
+[07/08 23:43:33    160s]   Not identified MB Latch number: 0
+[07/08 23:43:33    160s]   Number of sequential cells which are not FFs: 32
+[07/08 23:43:33    160s] 
+[07/08 23:43:33    160s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[07/08 23:43:33    160s] Total number of combinational cells: 318
+[07/08 23:43:33    160s] Total number of sequential cells: 152
+[07/08 23:43:33    160s] Total number of tristate cells: 10
+[07/08 23:43:33    160s] Total number of level shifter cells: 0
+[07/08 23:43:33    160s] Total number of power gating cells: 0
+[07/08 23:43:33    160s] Total number of isolation cells: 0
+[07/08 23:43:33    160s] Total number of power switch cells: 0
+[07/08 23:43:33    160s] Total number of pulse generator cells: 0
+[07/08 23:43:33    160s] Total number of always on buffers: 0
+[07/08 23:43:33    160s] Total number of retention cells: 0
+[07/08 23:43:33    160s] Total number of physical cells: 0
+[07/08 23:43:33    160s] List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+[07/08 23:43:33    160s] Total number of usable buffers: 16
+[07/08 23:43:33    160s] List of unusable buffers:
+[07/08 23:43:33    160s] Total number of unusable buffers: 0
+[07/08 23:43:33    160s] List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+[07/08 23:43:33    160s] Total number of usable inverters: 19
+[07/08 23:43:33    160s] List of unusable inverters:
+[07/08 23:43:33    160s] Total number of unusable inverters: 0
+[07/08 23:43:33    160s] List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+[07/08 23:43:33    160s] Total number of identified usable delay cells: 8
+[07/08 23:43:33    160s] List of identified unusable delay cells:
+[07/08 23:43:33    160s] Total number of identified unusable delay cells: 0
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Deleting Cell Server Begin ...
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Deleting Cell Server End ...
+[07/08 23:43:34    160s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1858.1M, current mem=1858.0M)
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[07/08 23:43:34    160s] Summary for sequential cells identification: 
+[07/08 23:43:34    160s]   Identified SBFF number: 104
+[07/08 23:43:34    160s]   Identified MBFF number: 0
+[07/08 23:43:34    160s]   Identified SB Latch number: 0
+[07/08 23:43:34    160s]   Identified MB Latch number: 0
+[07/08 23:43:34    160s]   Not identified SBFF number: 16
+[07/08 23:43:34    160s]   Not identified MBFF number: 0
+[07/08 23:43:34    160s]   Not identified SB Latch number: 0
+[07/08 23:43:34    160s]   Not identified MB Latch number: 0
+[07/08 23:43:34    160s]   Number of sequential cells which are not FFs: 32
+[07/08 23:43:34    160s]  Visiting view : wc
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 36.80 (1.000) with rcCorner = 0
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 20.10 (1.000) with rcCorner = -1
+[07/08 23:43:34    160s]  Visiting view : bc
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 11.90 (1.000) with rcCorner = 0
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 5.30 (1.000) with rcCorner = -1
+[07/08 23:43:34    160s] TLC MultiMap info (StdDelay):
+[07/08 23:43:34    160s]   : min_delay + min_timing + 1 + no RcCorner := 5.3ps
+[07/08 23:43:34    160s]   : min_delay + min_timing + 1 + rccorners := 11.9ps
+[07/08 23:43:34    160s]   : max_delay + max_timing + 1 + no RcCorner := 20.1ps
+[07/08 23:43:34    160s]   : max_delay + max_timing + 1 + rccorners := 36.8ps
+[07/08 23:43:34    160s]  Setting StdDelay to: 36.8ps
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Deleting Cell Server Begin ...
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Deleting Cell Server End ...
+[07/08 23:43:34    160s] Loading  (counter)
+[07/08 23:43:34    160s] Traverse HInst (counter)
+[07/08 23:43:34    160s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[07/08 23:43:34    160s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[07/08 23:43:34    160s] Summary for sequential cells identification: 
+[07/08 23:43:34    160s]   Identified SBFF number: 104
+[07/08 23:43:34    160s]   Identified MBFF number: 0
+[07/08 23:43:34    160s]   Identified SB Latch number: 0
+[07/08 23:43:34    160s]   Identified MB Latch number: 0
+[07/08 23:43:34    160s]   Not identified SBFF number: 16
+[07/08 23:43:34    160s]   Not identified MBFF number: 0
+[07/08 23:43:34    160s]   Not identified SB Latch number: 0
+[07/08 23:43:34    160s]   Not identified MB Latch number: 0
+[07/08 23:43:34    160s]   Number of sequential cells which are not FFs: 32
+[07/08 23:43:34    160s]  Visiting view : wc
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 36.80 (1.000) with rcCorner = 0
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 20.10 (1.000) with rcCorner = -1
+[07/08 23:43:34    160s]  Visiting view : bc
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 11.90 (1.000) with rcCorner = 0
+[07/08 23:43:34    160s]    : PowerDomain = none : Weighted F : unweighted  = 5.30 (1.000) with rcCorner = -1
+[07/08 23:43:34    160s] TLC MultiMap info (StdDelay):
+[07/08 23:43:34    160s]   : min_delay + min_timing + 1 + no RcCorner := 5.3ps
+[07/08 23:43:34    160s]   : min_delay + min_timing + 1 + rccorners := 11.9ps
+[07/08 23:43:34    160s]   : max_delay + max_timing + 1 + no RcCorner := 20.1ps
+[07/08 23:43:34    160s]   : max_delay + max_timing + 1 + rccorners := 36.8ps
+[07/08 23:43:34    160s]  Setting StdDelay to: 36.8ps
+[07/08 23:43:34    160s] 
+[07/08 23:43:34    160s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[07/08 23:43:34    160s] @innovus 3> Adjusting coreMargin left    to finFet grid (PlacementGrid) : after adjusting :2.6
+[07/08 23:44:12    163s] Adjusting coreMargin bottom  to finFet grid (PlacementGrid) : after adjusting :2.66
+[07/08 23:44:12    163s] Adjusting coreMargin right   to finFet grid (PlacementGrid) : after adjusting :2.6
+[07/08 23:44:12    163s] Adjusting coreMargin top     to finFet grid (PlacementGrid) : after adjusting :2.66
+[07/08 23:44:12    163s] Adjusting core size to PlacementGrid : width :12.2 height : 8.55
+[07/08 23:44:12    163s] **WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[07/08 23:44:12    163s] Type 'man IMPFP-3961' for more detail.
+[07/08 23:44:12    163s] **WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[07/08 23:44:12    163s] Type 'man IMPFP-3961' for more detail.
+[07/08 23:44:12    163s] Start create_tracks
+[07/08 23:44:12    163s] @innovus 3> The ring targets are set to core/block ring wires.
+[07/08 23:45:19    167s] add_rings command will consider rows while creating rings.
+[07/08 23:45:19    167s] add_rings command will disallow rings to go over rows.
+[07/08 23:45:19    167s] add_rings command will ignore shorts while creating rings.
+[07/08 23:45:19    167s] The ring targets are set to core/block ring wires.
+[07/08 23:45:19    167s] add_rings command will consider rows while creating rings.
+[07/08 23:45:19    167s] add_rings command will disallow rings to go over rows.
+[07/08 23:45:19    167s] add_rings command will ignore shorts while creating rings.
+[07/08 23:45:19    167s] 
+[07/08 23:45:19    167s] 
+[07/08 23:45:19    167s] viaInitial starts at Wed Jul  8 23:45:19 2026
+[07/08 23:45:19    167s] viaInitial ends at Wed Jul  8 23:45:19 2026
+[07/08 23:45:19    167s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2199.2M)
+[07/08 23:45:19    167s] **WARN: (IMPPP-193):	The currently specified top spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal1 is 0.045000. If violation happens, increase the spacing to around 0.262132. The recommended spacing is the square root of min enclosure area.
+[07/08 23:45:19    167s] **WARN: (IMPPP-193):	The currently specified bottom spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal1 is 0.045000. If violation happens, increase the spacing to around 0.262132. The recommended spacing is the square root of min enclosure area.
+[07/08 23:45:19    167s] **WARN: (IMPPP-193):	The currently specified left spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal2 is 0.055000. If violation happens, increase the spacing to around 0.284521. The recommended spacing is the square root of min enclosure area.
+[07/08 23:45:19    167s] **WARN: (IMPPP-193):	The currently specified right spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal2 is 0.055000. If violation happens, increase the spacing to around 0.284521. The recommended spacing is the square root of min enclosure area.
+[07/08 23:45:19    167s] Ring generation is complete.
+[07/08 23:45:19    167s] vias are now being generated.
+[07/08 23:45:19    167s] add_rings created 8 wires.
+[07/08 23:45:19    167s] ViaGen created 8 vias, deleted 0 via to avoid violation.
+[07/08 23:45:19    167s] +--------+----------------+----------------+
+[07/08 23:45:19    167s] |  Layer |     Created    |     Deleted    |
+[07/08 23:45:19    167s] +--------+----------------+----------------+
+[07/08 23:45:19    167s] | Metal1 |        4       |       NA       |
+[07/08 23:45:19    167s] |  Via1  |        8       |        0       |
+[07/08 23:45:19    167s] | Metal2 |        4       |       NA       |
+[07/08 23:45:19    167s] +--------+----------------+----------------+
+[07/08 23:45:20    168s] @innovus 3> The ring targets are set to core/block ring wires.
+[07/08 23:46:08    171s] add_rings command will consider rows while creating rings.
+[07/08 23:46:08    171s] add_rings command will disallow rings to go over rows.
+[07/08 23:46:08    171s] add_rings command will ignore shorts while creating rings.
+[07/08 23:46:08    171s] The ring targets are set to core/block ring wires.
+[07/08 23:46:08    171s] add_rings command will consider rows while creating rings.
+[07/08 23:46:08    171s] add_rings command will disallow rings to go over rows.
+[07/08 23:46:08    171s] add_rings command will ignore shorts while creating rings.
+[07/08 23:46:08    171s] 
+[07/08 23:46:08    171s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2199.2M)
+[07/08 23:46:08    171s] **WARN: (IMPPP-193):	The currently specified top spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal11 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+[07/08 23:46:08    171s] **WARN: (IMPPP-193):	The currently specified bottom spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal11 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+[07/08 23:46:08    171s] **WARN: (IMPPP-193):	The currently specified left spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal10 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+[07/08 23:46:08    171s] **WARN: (IMPPP-193):	The currently specified right spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal10 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+[07/08 23:46:08    171s] Ring generation is complete.
+[07/08 23:46:08    171s] vias are now being generated.
+[07/08 23:46:08    171s] add_rings created 8 wires.
+[07/08 23:46:08    171s] ViaGen created 8 vias, deleted 0 via to avoid violation.
+[07/08 23:46:08    171s] +--------+----------------+----------------+
+[07/08 23:46:08    171s] |  Layer |     Created    |     Deleted    |
+[07/08 23:46:08    171s] +--------+----------------+----------------+
+[07/08 23:46:08    171s] | Metal10|        4       |       NA       |
+[07/08 23:46:08    171s] |  Via10 |        8       |        0       |
+[07/08 23:46:08    171s] | Metal11|        4       |       NA       |
+[07/08 23:46:08    171s] +--------+----------------+----------------+
+[07/08 23:46:09    171s] @innovus 3> add_stripes will allow jog to connect padcore ring and block ring.
+[07/08 23:46:56    174s] 
+[07/08 23:46:56    174s] Stripes will stop at the boundary of the specified area.
+[07/08 23:46:56    174s] When breaking rings, the power planner will consider the existence of blocks.
+[07/08 23:46:56    174s] Stripes will not extend to closest target.
+[07/08 23:46:56    174s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[07/08 23:46:56    174s] Stripes will not be created over regions without power planning wires.
+[07/08 23:46:56    174s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[07/08 23:46:56    174s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[07/08 23:46:56    174s] Offset for stripe breaking is set to 0.
+[07/08 23:46:56    174s] add_stripes will allow jog to connect padcore ring and block ring.
+[07/08 23:46:56    174s] 
+[07/08 23:46:56    174s] Stripes will stop at the boundary of the specified area.
+[07/08 23:46:56    174s] When breaking rings, the power planner will consider the existence of blocks.
+[07/08 23:46:56    174s] Stripes will not extend to closest target.
+[07/08 23:46:56    174s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[07/08 23:46:56    174s] Stripes will not be created over regions without power planning wires.
+[07/08 23:46:56    174s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[07/08 23:46:56    174s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[07/08 23:46:56    174s] Offset for stripe breaking is set to 0.
+[07/08 23:46:56    174s] 
+[07/08 23:46:56    174s] Initialize fgc environment(mem: 2205.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:46:56    174s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:46:56    174s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:46:56    174s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:46:56    174s] Starting stripe generation ...
+[07/08 23:46:56    174s] Non-Default Mode Option Settings :
+[07/08 23:46:56    174s]   NONE
+[07/08 23:46:56    174s] Stripe generation is complete.
+[07/08 23:46:56    174s] vias are now being generated.
+[07/08 23:46:56    174s] add_stripes created 4 wires.
+[07/08 23:46:56    174s] ViaGen created 72 vias, deleted 0 via to avoid violation.
+[07/08 23:46:56    174s] +--------+----------------+----------------+
+[07/08 23:46:56    174s] |  Layer |     Created    |     Deleted    |
+[07/08 23:46:56    174s] +--------+----------------+----------------+
+[07/08 23:46:56    174s] | Metal1 |        4       |       NA       |
+[07/08 23:46:56    174s] |  Via1  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via2  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via3  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via4  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via5  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via6  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via7  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via8  |        8       |        0       |
+[07/08 23:46:56    174s] |  Via9  |        8       |        0       |
+[07/08 23:46:56    174s] +--------+----------------+----------------+
+[07/08 23:46:57    174s] @innovus 3> add_stripes will allow jog to connect padcore ring and block ring.
+[07/08 23:47:19    176s] 
+[07/08 23:47:19    176s] Stripes will stop at the boundary of the specified area.
+[07/08 23:47:19    176s] When breaking rings, the power planner will consider the existence of blocks.
+[07/08 23:47:19    176s] Stripes will not extend to closest target.
+[07/08 23:47:19    176s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[07/08 23:47:19    176s] Stripes will not be created over regions without power planning wires.
+[07/08 23:47:19    176s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[07/08 23:47:19    176s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[07/08 23:47:19    176s] Offset for stripe breaking is set to 0.
+[07/08 23:47:19    176s] add_stripes will allow jog to connect padcore ring and block ring.
+[07/08 23:47:19    176s] 
+[07/08 23:47:19    176s] Stripes will stop at the boundary of the specified area.
+[07/08 23:47:19    176s] When breaking rings, the power planner will consider the existence of blocks.
+[07/08 23:47:19    176s] Stripes will not extend to closest target.
+[07/08 23:47:19    176s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[07/08 23:47:19    176s] Stripes will not be created over regions without power planning wires.
+[07/08 23:47:19    176s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[07/08 23:47:19    176s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[07/08 23:47:19    176s] Offset for stripe breaking is set to 0.
+[07/08 23:47:19    176s] 
+[07/08 23:47:19    176s] Initialize fgc environment(mem: 2205.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:47:19    176s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:47:19    176s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:47:19    176s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+[07/08 23:47:19    176s] Starting stripe generation ...
+[07/08 23:47:19    176s] Non-Default Mode Option Settings :
+[07/08 23:47:19    176s]   NONE
+[07/08 23:47:19    176s] Stripe generation is complete.
+[07/08 23:47:19    176s] vias are now being generated.
+[07/08 23:47:19    176s] add_stripes created 6 wires.
+[07/08 23:47:19    176s] ViaGen created 120 vias, deleted 0 via to avoid violation.
+[07/08 23:47:19    176s] +--------+----------------+----------------+
+[07/08 23:47:19    176s] |  Layer |     Created    |     Deleted    |
+[07/08 23:47:19    176s] +--------+----------------+----------------+
+[07/08 23:47:19    176s] | Metal1 |        6       |       NA       |
+[07/08 23:47:19    176s] |  Via1  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via2  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via3  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via4  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via5  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via6  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via7  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via8  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via9  |       12       |        0       |
+[07/08 23:47:19    176s] |  Via10 |       12       |        0       |
+[07/08 23:47:19    176s] +--------+----------------+----------------+
+[07/08 23:47:19    176s] @innovus 3> 
+@innovus 3> 
+
+[07/08 23:47:54    179s] @innovus 3> connect_global_net VDD -type pg_pin -pin VDD -inst_base_name *
+@innovus 4> connect_global_net VSS -type pg_pin -pin VSS -inst_base_name *
+@innovus 5> set_db route_special_via_connect_to_shape { noshape }
+[07/08 23:49:49    185s] @innovus 6> route_special -connect {core_pin} -layer_change_range { Metal1(1) Metal11(11) } -block_pin_target {nearest_target} -core_pin_target {first_after_row_end} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal11(11) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal11(11) }
+[07/08 23:49:49    185s] #% Begin route_special (date=07/08 23:49:49, mem=1865.8M)
+[07/08 23:49:49    185s] **WARN: (IMPSR-4058):	Route_special option: blockPinTarget should be used in conjunction with option: -connect blockPin. 
+[07/08 23:49:49    185s] *** Begin SPECIAL ROUTE on Wed Jul  8 23:49:49 2026 ***
+[07/08 23:49:49    185s] SPECIAL ROUTE ran on directory: /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE
+[07/08 23:49:49    185s] SPECIAL ROUTE ran on machine: kopo-seongnam (Linux 3.10.0-1160.el7.x86_64 Xeon 803Mhz)
+[07/08 23:49:49    185s] 
+[07/08 23:49:49    185s] Begin option processing ...
+[07/08 23:49:49    185s] srouteConnectPowerBump set to false
+[07/08 23:49:49    185s] routeSelectNet set to "VDD VSS"
+[07/08 23:49:49    185s] routeSpecial set to true
+[07/08 23:49:49    185s] srouteBottomLayerLimit set to 1
+[07/08 23:49:49    185s] srouteBottomTargetLayerLimit set to 1
+[07/08 23:49:49    185s] srouteConnectBlockPin set to false
+[07/08 23:49:49    185s] srouteConnectConverterPin set to false
+[07/08 23:49:49    185s] srouteConnectPadPin set to false
+[07/08 23:49:49    185s] srouteConnectStripe set to false
+[07/08 23:49:49    185s] srouteCrossoverViaBottomLayer set to 1
+[07/08 23:49:49    185s] srouteCrossoverViaTopLayer set to 11
+[07/08 23:49:49    185s] srouteFollowCorePinEnd set to 3
+[07/08 23:49:49    185s] srouteFollowPadPin set to false
+[07/08 23:49:49    185s] srouteJogControl set to "preferWithChanges differentLayer"
+[07/08 23:49:49    185s] srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+[07/08 23:49:49    185s] sroutePadPinAllPorts set to true
+[07/08 23:49:49    185s] sroutePreserveExistingRoutes set to true
+[07/08 23:49:49    185s] srouteRoutePowerBarPortOnBothDir set to true
+[07/08 23:49:49    185s] srouteStopBlockPin set to "nearestTarget"
+[07/08 23:49:49    185s] srouteTopLayerLimit set to 11
+[07/08 23:49:49    185s] srouteTopTargetLayerLimit set to 11
+[07/08 23:49:49    185s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 3659.00 megs.
+[07/08 23:49:49    185s] 
+[07/08 23:49:49    185s] Reading DB technology information...
+[07/08 23:49:49    186s] Finished reading DB technology information.
+[07/08 23:49:49    186s] Reading floorplan and netlist information...
+[07/08 23:49:49    186s] Finished reading floorplan and netlist information.
+[07/08 23:49:49    186s] **WARN: (IMPSR-4302):	Cap-table/qrcTechFile is found in the design, so the same information from the technology file will be ignored.
+[07/08 23:49:50    186s] Read in 24 layers, 11 routing layers, 1 overlap layer
+[07/08 23:49:50    186s] Read in 2 nondefault rules, 0 used
+[07/08 23:49:50    186s] Read in 574 macros, 9 used
+[07/08 23:49:50    186s] Read in 9 components
+[07/08 23:49:50    186s]   9 core components: 9 unplaced, 0 placed, 0 fixed
+[07/08 23:49:50    186s] Read in 10 logical pins
+[07/08 23:49:50    186s] Read in 10 nets
+[07/08 23:49:50    186s] Read in 2 special nets, 2 routed
+[07/08 23:49:50    186s] Read in 18 terminals
+[07/08 23:49:50    186s] 2 nets selected.
+[07/08 23:49:50    186s] 
+[07/08 23:49:50    186s] Begin power routing ...
+[07/08 23:49:50    186s] ### import design signature (1): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1 inst_orient=1 via=610195162 routing_via=1 timing=1 sns=1 ppa_info=1
+[07/08 23:49:50    186s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 2.600), it will not be connected.
+[07/08 23:49:50    186s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+[07/08 23:49:50    186s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+[07/08 23:49:50    186s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+[07/08 23:49:50    186s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+[07/08 23:49:50    186s] CPU time for VDD FollowPin 0 seconds
+[07/08 23:49:50    186s] CPU time for VSS FollowPin 0 seconds
+[07/08 23:49:50    186s]   Number of Core ports routed: 15  open: 30
+[07/08 23:49:50    186s]   Number of Followpin connections: 24
+[07/08 23:49:50    186s] End power routing: cpu: 0:00:01, real: 0:00:00, peak: 3713.00 megs.
+[07/08 23:49:50    186s] 
+[07/08 23:49:50    186s] 
+[07/08 23:49:50    186s] 
+[07/08 23:49:50    186s]  Begin updating DB with routing results ...
+[07/08 23:49:50    186s]  Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+[07/08 23:49:50    186s] Pin and blockage extraction finished
+[07/08 23:49:50    186s] 
+[07/08 23:49:50    186s] route_special created 42 wires.
+[07/08 23:49:50    186s] ViaGen created 120 vias, deleted 0 via to avoid violation.
+[07/08 23:49:50    186s] +--------+----------------+----------------+
+[07/08 23:49:50    186s] |  Layer |     Created    |     Deleted    |
+[07/08 23:49:50    186s] +--------+----------------+----------------+
+[07/08 23:49:50    186s] | Metal1 |       39       |       NA       |
+[07/08 23:49:50    186s] |  Via1  |       18       |        0       |
+[07/08 23:49:50    186s] |  Via2  |       18       |        0       |
+[07/08 23:49:50    186s] | Metal3 |        3       |       NA       |
+[07/08 23:49:50    186s] |  Via3  |       12       |        0       |
+[07/08 23:49:50    186s] |  Via4  |       12       |        0       |
+[07/08 23:49:50    186s] |  Via5  |       12       |        0       |
+[07/08 23:49:50    186s] |  Via6  |       12       |        0       |
+[07/08 23:49:50    186s] |  Via7  |       12       |        0       |
+[07/08 23:49:50    186s] |  Via8  |       12       |        0       |
+[07/08 23:49:50    186s] |  Via9  |       12       |        0       |
+[07/08 23:49:50    186s] +--------+----------------+----------------+
+[07/08 23:49:50    186s] #% End route_special (date=07/08 23:49:50, total cpu=0:00:00.9, real=0:00:01.0, peak res=1936.8M, current mem=1917.8M)
+[07/08 23:49:50    186s] @innovus 7> set_db route_special_via_connect_to_shape { noshape }
+[07/08 23:50:20    189s] @innovus 8> route_special -connect {core_pin} -layer_change_range { Metal1(1) Metal11(11) } -block_pin_target {nearest_target} -core_pin_target {first_after_row_end} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal11(11) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal11(11) }
+[07/08 23:50:21    189s] #% Begin route_special (date=07/08 23:50:21, mem=1918.2M)
+[07/08 23:50:21    189s] **WARN: (IMPSR-4058):	Route_special option: blockPinTarget should be used in conjunction with option: -connect blockPin. 
+[07/08 23:50:21    189s] *** Begin SPECIAL ROUTE on Wed Jul  8 23:50:21 2026 ***
+[07/08 23:50:21    189s] SPECIAL ROUTE ran on directory: /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE
+[07/08 23:50:21    189s] SPECIAL ROUTE ran on machine: kopo-seongnam (Linux 3.10.0-1160.el7.x86_64 Xeon 800Mhz)
+[07/08 23:50:21    189s] 
+[07/08 23:50:21    189s] Begin option processing ...
+[07/08 23:50:21    189s] srouteConnectPowerBump set to false
+[07/08 23:50:21    189s] routeSelectNet set to "VDD VSS"
+[07/08 23:50:21    189s] routeSpecial set to true
+[07/08 23:50:21    189s] srouteBottomLayerLimit set to 1
+[07/08 23:50:21    189s] srouteBottomTargetLayerLimit set to 1
+[07/08 23:50:21    189s] srouteConnectBlockPin set to false
+[07/08 23:50:21    189s] srouteConnectConverterPin set to false
+[07/08 23:50:21    189s] srouteConnectPadPin set to false
+[07/08 23:50:21    189s] srouteConnectStripe set to false
+[07/08 23:50:21    189s] srouteCrossoverViaBottomLayer set to 1
+[07/08 23:50:21    189s] srouteCrossoverViaTopLayer set to 11
+[07/08 23:50:21    189s] srouteFollowCorePinEnd set to 3
+[07/08 23:50:21    189s] srouteFollowPadPin set to false
+[07/08 23:50:21    189s] srouteJogControl set to "preferWithChanges differentLayer"
+[07/08 23:50:21    189s] srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+[07/08 23:50:21    189s] sroutePadPinAllPorts set to true
+[07/08 23:50:21    189s] sroutePreserveExistingRoutes set to true
+[07/08 23:50:21    189s] srouteRoutePowerBarPortOnBothDir set to true
+[07/08 23:50:21    189s] srouteStopBlockPin set to "nearestTarget"
+[07/08 23:50:21    189s] srouteTopLayerLimit set to 11
+[07/08 23:50:21    189s] srouteTopTargetLayerLimit set to 11
+[07/08 23:50:21    189s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 3713.00 megs.
+[07/08 23:50:21    189s] 
+[07/08 23:50:21    189s] Reading DB technology information...
+[07/08 23:50:21    189s] Finished reading DB technology information.
+[07/08 23:50:21    189s] Reading floorplan and netlist information...
+[07/08 23:50:21    189s] Finished reading floorplan and netlist information.
+[07/08 23:50:21    189s] **WARN: (IMPSR-4302):	Cap-table/qrcTechFile is found in the design, so the same information from the technology file will be ignored.
+[07/08 23:50:21    189s] Read in 24 layers, 11 routing layers, 1 overlap layer
+[07/08 23:50:21    189s] Read in 2 nondefault rules, 0 used
+[07/08 23:50:21    189s] Read in 574 macros, 9 used
+[07/08 23:50:21    189s] Read in 9 components
+[07/08 23:50:21    189s]   9 core components: 9 unplaced, 0 placed, 0 fixed
+[07/08 23:50:21    189s] Read in 10 logical pins
+[07/08 23:50:21    189s] Read in 10 nets
+[07/08 23:50:21    189s] Read in 2 special nets, 2 routed
+[07/08 23:50:21    189s] Read in 18 terminals
+[07/08 23:50:21    189s] 2 nets selected.
+[07/08 23:50:21    189s] 
+[07/08 23:50:21    189s] Begin power routing ...
+[07/08 23:50:21    189s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 2.600), it will not be connected.
+[07/08 23:50:21    189s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+[07/08 23:50:21    189s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+[07/08 23:50:21    189s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+[07/08 23:50:21    189s] **WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+[07/08 23:50:21    189s] CPU time for VDD FollowPin 0 seconds
+[07/08 23:50:21    189s] CPU time for VSS FollowPin 0 seconds
+[07/08 23:50:21    189s]   Number of Core ports routed: 15  open: 30
+[07/08 23:50:21    189s]   Number of Followpin connections: 24
+[07/08 23:50:21    189s] End power routing: cpu: 0:00:00, real: 0:00:00, peak: 3715.00 megs.
+[07/08 23:50:21    189s] 
+[07/08 23:50:21    189s] 
+[07/08 23:50:21    189s] 
+[07/08 23:50:21    189s]  Begin updating DB with routing results ...
+[07/08 23:50:21    189s]  Updating DB with 0 via definition ...
+[07/08 23:50:21    189s] route_special created 42 wires.
+[07/08 23:50:21    189s] ViaGen created 120 vias, deleted 0 via to avoid violation.
+[07/08 23:50:21    189s] +--------+----------------+----------------+
+[07/08 23:50:21    189s] |  Layer |     Created    |     Deleted    |
+[07/08 23:50:21    189s] +--------+----------------+----------------+
+[07/08 23:50:21    189s] | Metal1 |       39       |       NA       |
+[07/08 23:50:21    189s] |  Via1  |       18       |        0       |
+[07/08 23:50:21    189s] |  Via2  |       18       |        0       |
+[07/08 23:50:21    189s] | Metal3 |        3       |       NA       |
+[07/08 23:50:21    189s] |  Via3  |       12       |        0       |
+[07/08 23:50:21    189s] |  Via4  |       12       |        0       |
+[07/08 23:50:21    189s] |  Via5  |       12       |        0       |
+[07/08 23:50:21    189s] |  Via6  |       12       |        0       |
+[07/08 23:50:21    189s] |  Via7  |       12       |        0       |
+[07/08 23:50:21    189s] |  Via8  |       12       |        0       |
+[07/08 23:50:21    189s] |  Via9  |       12       |        0       |
+[07/08 23:50:21    189s] +--------+----------------+----------------+
+[07/08 23:50:21    189s] #% End route_special (date=07/08 23:50:21, total cpu=0:00:00.5, real=0:00:00.0, peak res=1937.0M, current mem=1920.0M)
+[07/08 23:50:21    189s] @innovus 9> set_db add_stripes_ignore_block_check false ; set_db add_stripes_break_at none ; set_db add_stripes_route_over_rows_only false ; set_db add_stripes_rows_without_stripes_only false ; set_db add_stripes_extend_to_closest_target none ; set_db add_stripes_stop_at_last_wire_for_area false ; set_db add_stripes_partial_set_through_domain false ; set_db add_stripes_ignore_non_default_domains false ; set_db add_stripes_trim_antenna_back_to_shape none ; set_db add_stripes_spacing_type edge_to_edge ; set_db add_stripes_spacing_from_block 0 ; set_db add_stripes_stripe_min_length stripe_width ; set_db add_stripes_stacked_via_top_layer Metal11 ; set_db add_stripes_stacked_via_bottom_layer Metal1 ; set_db add_stripes_via_using_exact_crossover_size false ; set_db add_stripes_split_vias false ; set_db add_stripes_orthogonal_only true ; set_db add_stripes_allow_jog { padcore_ring  block_ring } ; set_db add_stripes_skip_via_on_pin {  standardcell } ; set_db add_stripes_skip_via_on_wire_shape {  noshape   }
+[07/08 23:51:11    194s] When breaking rings, the power planner will consider the existence of blocks.
+[07/08 23:51:11    194s] Stripes will not be created over regions without power planning wires.
+[07/08 23:51:11    194s] Stripes will not extend to closest target.
+[07/08 23:51:11    194s] Stripes will stop at the boundary of the specified area.
+[07/08 23:51:11    194s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[07/08 23:51:11    194s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[07/08 23:51:11    194s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[07/08 23:51:11    194s] Offset for stripe breaking is set to 0.
+[07/08 23:51:11    194s] add_stripes will allow jog to connect padcore ring and block ring.
+[07/08 23:51:11    194s] 
+[07/08 23:51:11    194s] @innovus 10> add_stripes will allow jog to connect padcore ring and block ring.
+[07/08 23:51:11    194s] 
+[07/08 23:51:11    194s] Stripes will stop at the boundary of the specified area.
+[07/08 23:51:11    194s] When breaking rings, the power planner will consider the existence of blocks.
+[07/08 23:51:11    194s] Stripes will not extend to closest target.
+[07/08 23:51:11    194s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[07/08 23:51:11    194s] Stripes will not be created over regions without power planning wires.
+[07/08 23:51:11    194s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[07/08 23:51:11    194s] add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[07/08 23:51:11    194s] Offset for stripe breaking is set to 0.
+[07/08 23:51:11    194s] add_stripes -nets {VDD VSS} -layer Metal10 -direction vertical -width .22 -spacing .2 -set_to_set_distance 5 -start_from left -start_offset 1 -stop_offset 0 -switch_layer_over_obs false -max_same_layer_jog_length 2 -pad_core_ring_top_layer_limit Metal11 -pad_core_ring_bottom_layer_limit Metal1 -block_ring_top_layer_limit Metal11 -block_ring_bottom_layer_limit Metal1 -use_wire_group 0 -snap_wire_center_to_grid none
+[07/08 23:51:11    194s] #% Begin add_stripes (date=07/08 23:51:11, mem=2137.4M)
+[07/08 23:51:11    194s] 
+[07/08 23:51:11    194s] Initialize fgc environment(mem: 2918.8M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+[07/08 23:51:11    194s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+[07/08 23:51:11    194s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+[07/08 23:51:11    194s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+[07/08 23:51:11    194s] **WARN: (IMPPP-193):	The currently specified  spacing 0.200000 in -spacing option might create min enclosed area violation. The required min enclosed area for layer Metal10 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+[07/08 23:51:11    194s] Starting stripe generation ...
+[07/08 23:51:11    194s] Non-Default Mode Option Settings :
+[07/08 23:51:11    194s]   NONE
+[07/08 23:51:11    194s] **WARN: (IMPPP-354):	The power planner did not generate the vertical stripe at 4.130000 0.560000 4.130000 12.610000 with width 0.220000 due to one of these reasons: the stripe would merge with rings, the stripe could not connect to any legal target, the stripe net is not contained by the power doamin, or the stripe would break the design rule.
+[07/08 23:51:11    194s] Type 'man IMPPP-354' for more detail.
+[07/08 23:51:11    194s] **WARN: (IMPPP-354):	The power planner did not generate the vertical stripe at 9.130000 0.560000 9.130000 12.610000 with width 0.220000 due to one of these reasons: the stripe would merge with rings, the stripe could not connect to any legal target, the stripe net is not contained by the power doamin, or the stripe would break the design rule.
+[07/08 23:51:11    194s] Type 'man IMPPP-354' for more detail.
+[07/08 23:51:11    194s] **WARN: (IMPPP-354):	The power planner did not generate the vertical stripe at 14.130000 0.560000 14.130000 12.610000 with width 0.220000 due to one of these reasons: the stripe would merge with rings, the stripe could not connect to any legal target, the stripe net is not contained by the power doamin, or the stripe would break the design rule.
+[07/08 23:51:11    194s] Type 'man IMPPP-354' for more detail.
+[07/08 23:51:11    194s] Stripe generation is complete.
+[07/08 23:51:11    194s] vias are now being generated.
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (3.60, 1.46) (3.82, 12.41).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (8.60, 1.46) (8.82, 12.41).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (13.60, 1.46) (13.82, 12.41).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (4.32, 0.56) (4.54, 4.26).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (4.32, 9.61) (4.54, 13.31).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (9.32, 0.56) (9.54, 4.26).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (9.32, 9.61) (9.54, 13.31).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (14.32, 0.56) (14.54, 4.26).
+[07/08 23:51:11    194s] **WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (14.32, 9.61) (14.54, 13.31).
+[07/08 23:51:11    194s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer Via9 at (4.32, 4.03) (4.54, 4.26).
+[07/08 23:51:11    194s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer Via9 at (9.32, 4.03) (9.54, 4.26).
+[07/08 23:51:11    194s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer Via9 at (14.32, 4.03) (14.54, 4.26).
+[07/08 23:51:11    194s] add_stripes created 21 wires.
+[07/08 23:51:11    194s] ViaGen created 187 vias, deleted 0 via to avoid violation.
+[07/08 23:51:11    194s] +--------+----------------+----------------+
+[07/08 23:51:11    194s] |  Layer |     Created    |     Deleted    |
+[07/08 23:51:11    194s] +--------+----------------+----------------+
+[07/08 23:51:11    194s] |  Via1  |       20       |        0       |
+[07/08 23:51:11    194s] |  Via2  |       20       |        0       |
+[07/08 23:51:11    194s] |  Via3  |       21       |        0       |
+[07/08 23:51:11    194s] |  Via4  |       21       |        0       |
+[07/08 23:51:11    194s] |  Via5  |       21       |        0       |
+[07/08 23:51:11    194s] |  Via6  |       21       |        0       |
+[07/08 23:51:11    194s] |  Via7  |       21       |        0       |
+[07/08 23:51:11    194s] |  Via8  |       21       |        0       |
+[07/08 23:51:11    194s] |  Via9  |       21       |        0       |
+[07/08 23:51:11    194s] | Metal10|       21       |       NA       |
+[07/08 23:51:11    194s] +--------+----------------+----------------+
+[07/08 23:51:11    194s] #% End add_stripes (date=07/08 23:51:11, total cpu=0:00:00.1, real=0:00:00.0, peak res=2138.3M, current mem=2138.3M)
+[07/08 23:51:11    194s] @innovus 11> 
+[07/08 23:51:37    198s] --------------------------------------------------------------------------------
+[07/08 23:51:37    198s] Exiting Innovus on Wed Jul  8 23:51:37 2026
+[07/08 23:51:37    198s]   Total CPU time:     0:03:19
+[07/08 23:51:37    198s]   Total real time:    0:16:08
+[07/08 23:51:37    198s]   Peak memory (main): 2147.18MB
+[07/08 23:51:37    198s] 
+[07/08 23:51:37    198s] 
+[07/08 23:51:37    198s] *** Memory Usage v#1 (Current mem = 2930.871M, initial mem = 654.375M) ***
+[07/08 23:51:37    198s] 
+[07/08 23:51:37    198s] *** Summary of all messages that are not suppressed in this session:
+[07/08 23:51:37    198s] Severity  ID               Count  Summary                                  
+[07/08 23:51:37    198s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[07/08 23:51:37    198s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[07/08 23:51:37    198s] WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+[07/08 23:51:37    198s] WARNING   IMPPP-531            3  ViaGen Warning: Due to %s rule violation...
+[07/08 23:51:37    198s] WARNING   IMPPP-532            9  ViaGen Warning: The top layer and bottom...
+[07/08 23:51:37    198s] WARNING   IMPPP-354            3  The power planner did not generate the %...
+[07/08 23:51:37    198s] WARNING   IMPPP-193            9  The currently specified %s spacing %f %s...
+[07/08 23:51:37    198s] WARNING   IMPSR-4302           2  Cap-table/qrcTechFile is found in the de...
+[07/08 23:51:37    198s] WARNING   IMPSR-4058           2  Route_special option: %s should be used ...
+[07/08 23:51:37    198s] WARNING   IMPSR-481           10  Row/Power/Ground pin overlap with a bloc...
+[07/08 23:51:37    198s] WARNING   TCLCMD-1461          2  Skipped unsupported command: %s          
+[07/08 23:51:37    198s] WARNING   TECHLIB-302          2  No function defined for cell '%s'. The c...
+[07/08 23:51:37    198s] *** Message Summary: 48 warning(s), 0 error(s)
+[07/08 23:51:37    198s] 
+[07/08 23:51:37    198s] --- Ending "Innovus" (totcpu=0:03:19, real=0:16:07, mem=2930.9M) ---

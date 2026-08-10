@@ -1,0 +1,613 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.17-s086_1, built Tue Sep 24 10:51:50 PDT 2024
+Options:	-stylus 
+Date:		Wed Jul  8 23:35:30 2026
+Host:		kopo-seongnam (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (20cores*80cpus*Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz 28160KB)
+OS:		CentOS Linux 7 (Core)
+
+License:
+		[23:35:30.158593] Configured Lic search path (22.01-s003): 5280@localhost
+
+		invs	Innovus Implementation System	22.1	Denied
+		invsb	Innovus Implementation System Basic	22.1	checkout succeeded
+		4 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Create and set the environment variable TMPDIR to /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE/innovus_temp_209645_f5bde4a5-8469-42dd-9d14-9e3afe531177_kopo-seongnam_hah004_NLEFsR.
+
+Change the soft stacksize limit to 0.2%RAM (770 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> set_db init_power_nets VDD
+@innovus 2> set_db init_ground_nets VSS
+@innovus 3> #################################
+read_mmmc sample.view
+#################################
+#@ Begin verbose source sample.view (pre)
+@file 1:
+@@file 2: create_library_set -name max_timing\
+   -timing ../../1_LIB/slow_vdd1v0_basicCells.lib
+@file 4:
+@@file 5: create_library_set -name min_timing\
+   -timing ../../1_LIB/fast_vdd1v0_basicCells.lib
+@file 7:
+@@file 8: create_timing_condition -name default_mapping_tc_2\
+   -library_sets min_timing
+@@file 10: create_timing_condition -name default_mapping_tc_1\
+   -library_sets max_timing
+@file 12:
+@@file 13: create_rc_corner -name rccorners\
+   -cap_table ../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl\
+   -pre_route_res 1\
+   -post_route_res 1\
+   -pre_route_cap 1\
+   -post_route_cap 1\
+   -post_route_cross_cap 1\
+   -pre_route_clock_res 0\
+   -pre_route_clock_cap 0\
+   -qrc_tech ../../5_QRC_TECH/gpdk045.tch
+@file 23:
+@@file 24: create_delay_corner -name max_delay\
+   -timing_condition {default_mapping_tc_1}\
+   -rc_corner rccorners
+@@file 27: create_delay_corner -name min_delay\
+   -timing_condition {default_mapping_tc_2}\
+   -rc_corner rccorners
+@file 30:
+@@file 31: create_constraint_mode -name sdc_cons\
+   -sdc_files\
+    ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc
+@file 34:
+@@file 35: create_analysis_view -name wc -constraint_mode sdc_cons -delay_corner max_delay
+@@file 36: create_analysis_view -name bc -constraint_mode sdc_cons -delay_corner min_delay
+@file 37:
+@@file 38: set_analysis_view -setup wc -hold bc
+@file 39:
+@file 40:
+#@ End verbose source sample.view
+Reading max_timing timing library '/home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/slow_vdd1v0_basicCells.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/slow_vdd1v0_basicCells.lib)
+Read 480 cells in library 'slow_vdd1v0' 
+Reading min_timing timing library '/home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/fast_vdd1v0_basicCells.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/hah004/Basic_SoC-_Implementation/5_APR/1_LIB/fast_vdd1v0_basicCells.lib)
+Read 480 cells in library 'fast_vdd1v0' 
+#################################
+read_physical -lef {../../3_LEF/gsclib045_tech.lef ../../3_LEF/gsclib045_macro.lef}
+#################################
+
+Loading LEF file ../../3_LEF/gsclib045_tech.lef ...
+Set DBUPerIGU to M2 pitch 400.
+
+Loading LEF file ../../3_LEF/gsclib045_macro.lef ...
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+#################################
+read_netlist ../../6_GLN/0_SAMPLE/counter_netlist.v
+#################################
+#% Begin Load netlist data ... (date=07/08 23:43:32, mem=1392.5M)
+*** Begin netlist parsing (mem=1649.1M) ***
+Created 480 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../../6_GLN/0_SAMPLE/counter_netlist.v'
+
+*** Memory Usage v#1 (Current mem = 1652.078M, initial mem = 654.375M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1652.1M) ***
+#% End Load netlist data ... (date=07/08 23:43:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=1403.0M, current mem=1403.0M)
+Top level cell is counter.
+Hooked 960 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell counter ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 1055 modules.
+** info: there are 21 stdCell insts.
+** info: there are 21 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#1 (Current mem = 1714.504M, initial mem = 654.375M) ***
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for pre_route and post_route extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for pre_route and post_route (effort level medium/high/signoff) extraction engines.
+Type 'man IMPEXT-6202' for more detail.
+Reading Capacitance Table File ../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl ...
+Cap table was created using Encounter 10.10-b056_1.
+Process name: cln28hpl_1p10m+alrdl_5x2yu2yz_typical.
+Set Shrink Factor to 0.90000
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: wc
+    RC-Corner Name        : rccorners
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '../../5_QRC_TECH/gpdk045.tch'
+ 
+ Analysis View: bc
+    RC-Corner Name        : rccorners
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '../../5_QRC_TECH/gpdk045.tch'
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Creating RPSQ from WeeR and WRes ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc' ...
+Current (total cpu=0:02:40, real=0:08:03, peak res=1824.6M, current mem=1824.6M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc, Line 9).
+
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc, Line 10).
+
+counter
+INFO (CTE): Reading of timing constraints file ../../2_CONSTRAINTS/0_SAMPLE/counter_sdc.sdc completed, with 2 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1838.6M, current mem=1838.6M)
+Current (total cpu=0:02:40, real=0:08:03, peak res=1838.6M, current mem=1838.6M)
+Total number of combinational cells: 318
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Loading  (counter)
+Traverse HInst (counter)
+@innovus 3> Adjusting coreMargin left    to finFet grid (PlacementGrid) : after adjusting :2.6
+Adjusting coreMargin bottom  to finFet grid (PlacementGrid) : after adjusting :2.66
+Adjusting coreMargin right   to finFet grid (PlacementGrid) : after adjusting :2.6
+Adjusting coreMargin top     to finFet grid (PlacementGrid) : after adjusting :2.66
+Adjusting core size to PlacementGrid : width :12.2 height : 8.55
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+@innovus 3> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+
+
+viaInitial starts at Wed Jul  8 23:45:19 2026
+viaInitial ends at Wed Jul  8 23:45:19 2026
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2199.2M)
+**WARN: (IMPPP-193):	The currently specified top spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal1 is 0.045000. If violation happens, increase the spacing to around 0.262132. The recommended spacing is the square root of min enclosure area.
+**WARN: (IMPPP-193):	The currently specified bottom spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal1 is 0.045000. If violation happens, increase the spacing to around 0.262132. The recommended spacing is the square root of min enclosure area.
+**WARN: (IMPPP-193):	The currently specified left spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal2 is 0.055000. If violation happens, increase the spacing to around 0.284521. The recommended spacing is the square root of min enclosure area.
+**WARN: (IMPPP-193):	The currently specified right spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal2 is 0.055000. If violation happens, increase the spacing to around 0.284521. The recommended spacing is the square root of min enclosure area.
+Ring generation is complete.
+vias are now being generated.
+add_rings created 8 wires.
+ViaGen created 8 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal1 |        4       |       NA       |
+|  Via1  |        8       |        0       |
+| Metal2 |        4       |       NA       |
++--------+----------------+----------------+
+@innovus 3> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2199.2M)
+**WARN: (IMPPP-193):	The currently specified top spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal11 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+**WARN: (IMPPP-193):	The currently specified bottom spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal11 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+**WARN: (IMPPP-193):	The currently specified left spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal10 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+**WARN: (IMPPP-193):	The currently specified right spacing 0.200000  might create min enclosed area violation. The required min enclosed area for layer Metal10 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+Ring generation is complete.
+vias are now being generated.
+add_rings created 8 wires.
+ViaGen created 8 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal10|        4       |       NA       |
+|  Via10 |        8       |        0       |
+| Metal11|        4       |       NA       |
++--------+----------------+----------------+
+@innovus 3> add_stripes will allow jog to connect padcore ring and block ring.
+
+Stripes will stop at the boundary of the specified area.
+When breaking rings, the power planner will consider the existence of blocks.
+Stripes will not extend to closest target.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Stripes will not be created over regions without power planning wires.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+Offset for stripe breaking is set to 0.
+add_stripes will allow jog to connect padcore ring and block ring.
+
+Stripes will stop at the boundary of the specified area.
+When breaking rings, the power planner will consider the existence of blocks.
+Stripes will not extend to closest target.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Stripes will not be created over regions without power planning wires.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+Offset for stripe breaking is set to 0.
+
+Initialize fgc environment(mem: 2205.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Stripe generation is complete.
+vias are now being generated.
+add_stripes created 4 wires.
+ViaGen created 72 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal1 |        4       |       NA       |
+|  Via1  |        8       |        0       |
+|  Via2  |        8       |        0       |
+|  Via3  |        8       |        0       |
+|  Via4  |        8       |        0       |
+|  Via5  |        8       |        0       |
+|  Via6  |        8       |        0       |
+|  Via7  |        8       |        0       |
+|  Via8  |        8       |        0       |
+|  Via9  |        8       |        0       |
++--------+----------------+----------------+
+@innovus 3> add_stripes will allow jog to connect padcore ring and block ring.
+
+Stripes will stop at the boundary of the specified area.
+When breaking rings, the power planner will consider the existence of blocks.
+Stripes will not extend to closest target.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Stripes will not be created over regions without power planning wires.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+Offset for stripe breaking is set to 0.
+add_stripes will allow jog to connect padcore ring and block ring.
+
+Stripes will stop at the boundary of the specified area.
+When breaking rings, the power planner will consider the existence of blocks.
+Stripes will not extend to closest target.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Stripes will not be created over regions without power planning wires.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+Offset for stripe breaking is set to 0.
+
+Initialize fgc environment(mem: 2205.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2205.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Stripe generation is complete.
+vias are now being generated.
+add_stripes created 6 wires.
+ViaGen created 120 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal1 |        6       |       NA       |
+|  Via1  |       12       |        0       |
+|  Via2  |       12       |        0       |
+|  Via3  |       12       |        0       |
+|  Via4  |       12       |        0       |
+|  Via5  |       12       |        0       |
+|  Via6  |       12       |        0       |
+|  Via7  |       12       |        0       |
+|  Via8  |       12       |        0       |
+|  Via9  |       12       |        0       |
+|  Via10 |       12       |        0       |
++--------+----------------+----------------+
+@innovus 3> 
+@innovus 3> 
+
+@innovus 3> connect_global_net VDD -type pg_pin -pin VDD -inst_base_name *
+@innovus 4> connect_global_net VSS -type pg_pin -pin VSS -inst_base_name *
+@innovus 5> set_db route_special_via_connect_to_shape { noshape }
+@innovus 6> route_special -connect {core_pin} -layer_change_range { Metal1(1) Metal11(11) } -block_pin_target {nearest_target} -core_pin_target {first_after_row_end} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal11(11) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal11(11) }
+#% Begin route_special (date=07/08 23:49:49, mem=1865.8M)
+**WARN: (IMPSR-4058):	Route_special option: blockPinTarget should be used in conjunction with option: -connect blockPin. 
+*** Begin SPECIAL ROUTE on Wed Jul  8 23:49:49 2026 ***
+SPECIAL ROUTE ran on directory: /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE
+SPECIAL ROUTE ran on machine: kopo-seongnam (Linux 3.10.0-1160.el7.x86_64 Xeon 803Mhz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "VDD VSS"
+routeSpecial set to true
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectBlockPin set to false
+srouteConnectConverterPin set to false
+srouteConnectPadPin set to false
+srouteConnectStripe set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 11
+srouteFollowCorePinEnd set to 3
+srouteFollowPadPin set to false
+srouteJogControl set to "preferWithChanges differentLayer"
+srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 11
+srouteTopTargetLayerLimit set to 11
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 3659.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+**WARN: (IMPSR-4302):	Cap-table/qrcTechFile is found in the design, so the same information from the technology file will be ignored.
+Read in 24 layers, 11 routing layers, 1 overlap layer
+Read in 2 nondefault rules, 0 used
+Read in 574 macros, 9 used
+Read in 9 components
+  9 core components: 9 unplaced, 0 placed, 0 fixed
+Read in 10 logical pins
+Read in 10 nets
+Read in 2 special nets, 2 routed
+Read in 18 terminals
+2 nets selected.
+
+Begin power routing ...
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 2.600), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+CPU time for VDD FollowPin 0 seconds
+CPU time for VSS FollowPin 0 seconds
+  Number of Core ports routed: 15  open: 30
+  Number of Followpin connections: 24
+End power routing: cpu: 0:00:01, real: 0:00:00, peak: 3713.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+
+route_special created 42 wires.
+ViaGen created 120 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal1 |       39       |       NA       |
+|  Via1  |       18       |        0       |
+|  Via2  |       18       |        0       |
+| Metal3 |        3       |       NA       |
+|  Via3  |       12       |        0       |
+|  Via4  |       12       |        0       |
+|  Via5  |       12       |        0       |
+|  Via6  |       12       |        0       |
+|  Via7  |       12       |        0       |
+|  Via8  |       12       |        0       |
+|  Via9  |       12       |        0       |
++--------+----------------+----------------+
+#% End route_special (date=07/08 23:49:50, total cpu=0:00:00.9, real=0:00:01.0, peak res=1936.8M, current mem=1917.8M)
+@innovus 7> set_db route_special_via_connect_to_shape { noshape }
+@innovus 8> route_special -connect {core_pin} -layer_change_range { Metal1(1) Metal11(11) } -block_pin_target {nearest_target} -core_pin_target {first_after_row_end} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal11(11) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal11(11) }
+#% Begin route_special (date=07/08 23:50:21, mem=1918.2M)
+**WARN: (IMPSR-4058):	Route_special option: blockPinTarget should be used in conjunction with option: -connect blockPin. 
+*** Begin SPECIAL ROUTE on Wed Jul  8 23:50:21 2026 ***
+SPECIAL ROUTE ran on directory: /home/hah004/Basic_SoC-_Implementation/5_APR/7_APR/0_SAMPLE
+SPECIAL ROUTE ran on machine: kopo-seongnam (Linux 3.10.0-1160.el7.x86_64 Xeon 800Mhz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "VDD VSS"
+routeSpecial set to true
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectBlockPin set to false
+srouteConnectConverterPin set to false
+srouteConnectPadPin set to false
+srouteConnectStripe set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 11
+srouteFollowCorePinEnd set to 3
+srouteFollowPadPin set to false
+srouteJogControl set to "preferWithChanges differentLayer"
+srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 11
+srouteTopTargetLayerLimit set to 11
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 3713.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+**WARN: (IMPSR-4302):	Cap-table/qrcTechFile is found in the design, so the same information from the technology file will be ignored.
+Read in 24 layers, 11 routing layers, 1 overlap layer
+Read in 2 nondefault rules, 0 used
+Read in 574 macros, 9 used
+Read in 9 components
+  9 core components: 9 unplaced, 0 placed, 0 fixed
+Read in 10 logical pins
+Read in 10 nets
+Read in 2 special nets, 2 routed
+Read in 18 terminals
+2 nets selected.
+
+Begin power routing ...
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 2.600), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 6.020), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (14.000, 9.440), it will not be connected.
+CPU time for VDD FollowPin 0 seconds
+CPU time for VSS FollowPin 0 seconds
+  Number of Core ports routed: 15  open: 30
+  Number of Followpin connections: 24
+End power routing: cpu: 0:00:00, real: 0:00:00, peak: 3715.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 0 via definition ...
+route_special created 42 wires.
+ViaGen created 120 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal1 |       39       |       NA       |
+|  Via1  |       18       |        0       |
+|  Via2  |       18       |        0       |
+| Metal3 |        3       |       NA       |
+|  Via3  |       12       |        0       |
+|  Via4  |       12       |        0       |
+|  Via5  |       12       |        0       |
+|  Via6  |       12       |        0       |
+|  Via7  |       12       |        0       |
+|  Via8  |       12       |        0       |
+|  Via9  |       12       |        0       |
++--------+----------------+----------------+
+#% End route_special (date=07/08 23:50:21, total cpu=0:00:00.5, real=0:00:00.0, peak res=1937.0M, current mem=1920.0M)
+@innovus 9> set_db add_stripes_ignore_block_check false ; set_db add_stripes_break_at none ; set_db add_stripes_route_over_rows_only false ; set_db add_stripes_rows_without_stripes_only false ; set_db add_stripes_extend_to_closest_target none ; set_db add_stripes_stop_at_last_wire_for_area false ; set_db add_stripes_partial_set_through_domain false ; set_db add_stripes_ignore_non_default_domains false ; set_db add_stripes_trim_antenna_back_to_shape none ; set_db add_stripes_spacing_type edge_to_edge ; set_db add_stripes_spacing_from_block 0 ; set_db add_stripes_stripe_min_length stripe_width ; set_db add_stripes_stacked_via_top_layer Metal11 ; set_db add_stripes_stacked_via_bottom_layer Metal1 ; set_db add_stripes_via_using_exact_crossover_size false ; set_db add_stripes_split_vias false ; set_db add_stripes_orthogonal_only true ; set_db add_stripes_allow_jog { padcore_ring  block_ring } ; set_db add_stripes_skip_via_on_pin {  standardcell } ; set_db add_stripes_skip_via_on_wire_shape {  noshape   }
+When breaking rings, the power planner will consider the existence of blocks.
+Stripes will not be created over regions without power planning wires.
+Stripes will not extend to closest target.
+Stripes will stop at the boundary of the specified area.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Offset for stripe breaking is set to 0.
+add_stripes will allow jog to connect padcore ring and block ring.
+
+@innovus 10> add_stripes will allow jog to connect padcore ring and block ring.
+
+Stripes will stop at the boundary of the specified area.
+When breaking rings, the power planner will consider the existence of blocks.
+Stripes will not extend to closest target.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Stripes will not be created over regions without power planning wires.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+add_stripes will break automatically at non-default domains when generating global stripes over the core area or default domain.
+Offset for stripe breaking is set to 0.
+add_stripes -nets {VDD VSS} -layer Metal10 -direction vertical -width .22 -spacing .2 -set_to_set_distance 5 -start_from left -start_offset 1 -stop_offset 0 -switch_layer_over_obs false -max_same_layer_jog_length 2 -pad_core_ring_top_layer_limit Metal11 -pad_core_ring_bottom_layer_limit Metal1 -block_ring_top_layer_limit Metal11 -block_ring_bottom_layer_limit Metal1 -use_wire_group 0 -snap_wire_center_to_grid none
+#% Begin add_stripes (date=07/08 23:51:11, mem=2137.4M)
+
+Initialize fgc environment(mem: 2918.8M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 2918.8M)
+**WARN: (IMPPP-193):	The currently specified  spacing 0.200000 in -spacing option might create min enclosed area violation. The required min enclosed area for layer Metal10 is 0.110000. If violation happens, increase the spacing to around 0.381662. The recommended spacing is the square root of min enclosure area.
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+**WARN: (IMPPP-354):	The power planner did not generate the vertical stripe at 4.130000 0.560000 4.130000 12.610000 with width 0.220000 due to one of these reasons: the stripe would merge with rings, the stripe could not connect to any legal target, the stripe net is not contained by the power doamin, or the stripe would break the design rule.
+Type 'man IMPPP-354' for more detail.
+**WARN: (IMPPP-354):	The power planner did not generate the vertical stripe at 9.130000 0.560000 9.130000 12.610000 with width 0.220000 due to one of these reasons: the stripe would merge with rings, the stripe could not connect to any legal target, the stripe net is not contained by the power doamin, or the stripe would break the design rule.
+Type 'man IMPPP-354' for more detail.
+**WARN: (IMPPP-354):	The power planner did not generate the vertical stripe at 14.130000 0.560000 14.130000 12.610000 with width 0.220000 due to one of these reasons: the stripe would merge with rings, the stripe could not connect to any legal target, the stripe net is not contained by the power doamin, or the stripe would break the design rule.
+Type 'man IMPPP-354' for more detail.
+Stripe generation is complete.
+vias are now being generated.
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (3.60, 1.46) (3.82, 12.41).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (8.60, 1.46) (8.82, 12.41).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (13.60, 1.46) (13.82, 12.41).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (4.32, 0.56) (4.54, 4.26).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (4.32, 9.61) (4.54, 13.31).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (9.32, 0.56) (9.54, 4.26).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (9.32, 9.61) (9.54, 13.31).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (14.32, 0.56) (14.54, 4.26).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer Metal10 & Metal1 at (14.32, 9.61) (14.54, 13.31).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer Via9 at (4.32, 4.03) (4.54, 4.26).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer Via9 at (9.32, 4.03) (9.54, 4.26).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer Via9 at (14.32, 4.03) (14.54, 4.26).
+add_stripes created 21 wires.
+ViaGen created 187 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  Via1  |       20       |        0       |
+|  Via2  |       20       |        0       |
+|  Via3  |       21       |        0       |
+|  Via4  |       21       |        0       |
+|  Via5  |       21       |        0       |
+|  Via6  |       21       |        0       |
+|  Via7  |       21       |        0       |
+|  Via8  |       21       |        0       |
+|  Via9  |       21       |        0       |
+| Metal10|       21       |       NA       |
++--------+----------------+----------------+
+#% End add_stripes (date=07/08 23:51:11, total cpu=0:00:00.1, real=0:00:00.0, peak res=2138.3M, current mem=2138.3M)
+@innovus 11> 
+--------------------------------------------------------------------------------
+Exiting Innovus on Wed Jul  8 23:51:37 2026
+  Total CPU time:     0:03:19
+  Total real time:    0:16:08
+  Peak memory (main): 2147.18MB
+
+
+*** Memory Usage v#1 (Current mem = 2930.871M, initial mem = 654.375M) ***
+*** Message Summary: 48 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:03:19, real=0:16:07, mem=2930.9M) ---
