@@ -47,7 +47,7 @@ module tb_register (); // top module
 	end
 	
 	/***** clkgen *****/
- 	always #5 clk = ~clk	  	;
+ 	always #50 clk = ~clk	  	;
 
 
 	/***** DUT instantiation *****/
